@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'notesy-client',
+    podModulePrefix: 'notesy-client/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -25,6 +26,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.COUCH_URL = 'http://andy:asdfasdf@localhost:5984';
   }
 
   if (environment === 'test') {
@@ -40,7 +42,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.COUCH_URL = process.env.COUCH_URL;
   }
 
   return ENV;
