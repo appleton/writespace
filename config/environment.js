@@ -17,7 +17,15 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    'simple-auth': {
+      authenticationRoute: 'user.login',
+      routeAfterAuthentication: 'notes',
+      routeIfAlreadyAuthenticated: 'notes'
+    },
+
+    contentSecurityPolicy: {}
   };
 
   if (environment === 'development') {
@@ -26,7 +34,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.COUCH_URL = 'http://andy:asdfasdf@localhost:5984';
+    ENV.COUCH_URL = 'http://localhost:5984';
+    ENV.contentSecurityPolicy['connect-src'] = "'self' " + ENV.COUCH_URL;
   }
 
   if (environment === 'test') {
@@ -43,6 +52,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.COUCH_URL = process.env.COUCH_URL;
+    ENV.contentSecurityPolicy['connect-src'] = "'self' " + ENV.COUCH_URL;
   }
 
   return ENV;

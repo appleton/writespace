@@ -1,0 +1,21 @@
+<main class="user-form">
+  {{#if error}}<div class="form-errors">{{error}}</div>{{/if}}
+
+  <form novalidate class="user-form__body" {{action "authenticate" on="submit"}}>
+
+    <label class="label" for="email">Email address</label>
+    {{input tabindex="1" id="email" name="email" class="input" type="email" value=email}}
+
+    <label class="label" for="password">Password</label>
+    <a tabindex="4" class="u-text-s" ui-sref="passwords.new()">Forgot?</a>
+    {{input tabindex="2" id="password" name="password" class="input" type="password" value=password}}
+
+    <button tabindex="3" class="user-form__body__btn btn btn--green btn--large">
+      Log in
+    </button>
+
+    <div class="u-text-s u-text-center">
+      Don't have an account? <a ui-sref="noAuth.users()">Sign up here</a>
+    </div>
+  </form>
+</main>

@@ -2,7 +2,9 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "PouchDB",
+    "EmberPouch"
   ],
   "browser": true,
   "boss": true,

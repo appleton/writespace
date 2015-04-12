@@ -1,4 +1,4 @@
-import config from '../config/environment';
+// import config from '../config/environment';
 
 var db = new PouchDB('notes');
 // TODO: sync when logged in
