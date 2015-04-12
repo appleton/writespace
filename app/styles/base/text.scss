@@ -1,0 +1,29 @@
+@import "./sizes.scss";
+
+p {
+  margin-top: 0;
+  margin-bottom: $s-m;
+}
+
+blockquote {
+  margin: 0 0 0 $s-m;
+}
+
+.u-text-xs { font-size: $t-xs; }
+.u-text-s  { font-size: $t-s; }
+.u-text-m  { font-size: $t-m; }
+.u-text-xm { font-size: $t-xm; }
+.u-text-l  { font-size: $t-l; }
+
+.u-text-left   { text-align: left; }
+.u-text-center { text-align: center; }
+.u-text-right  { text-align: right; }
+
+
+.u-text-truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

@@ -1,0 +1,47 @@
+@import "../base/sizes.scss";
+@import "../base/colours.scss";
+@import "../base/media-queries.scss";
+
+.action {
+  border: none;
+  background: none;
+  color: $c-light-grey;
+  font-size: $t-l;
+  line-height: 1.3;
+  padding: 0;
+
+  &:hover {
+    color: darken($c-light-grey, 10%);
+    border: none;
+  }
+
+  &:active {
+    outline: none;
+    color: darken($c-light-grey, 15%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.action--back {
+  display: none;
+
+  @include respond-to(mobile) {
+    display: inline;
+  }
+}
+
+.action--delete {
+  @include respond-to(mobile) {
+    float: right;
+  }
+}
+
+.action__text {
+  display: inline-block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}

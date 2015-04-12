@@ -1,0 +1,17 @@
+@import "../base/sizes.scss";
+@import "../base/colours.scss";
+@import "../base/media-queries.scss";
+
+.app-header {
+  margin-left: $sidebar-width;
+  height: $s-header-height;
+  margin-bottom: -1px;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid $c-border;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}

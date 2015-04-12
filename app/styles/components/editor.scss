@@ -1,0 +1,57 @@
+@import "../base/sizes.scss";
+@import "../base/colours.scss";
+
+.editor-wrapper {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  max-width: 700px;
+  height: 100%;
+}
+
+.CodeMirror, .editor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  border: none;
+  background: $c-page-bg;
+  font-size: 18px;
+  font-family: "Source code pro", "Inconsolata-dz", "Inconsolata", "Menlo", "Ubuntu Mono", "Consolas", monospace;
+  line-height: 25px;
+  resize: none;
+  -webkit-overflow-scrolling: touch;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.cm-s-notesy {
+  &.CodeMirror {
+    background: transparent;
+    color: #424242;
+  }
+
+  .CodeMirror-lines {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .CodeMirror-cursor {
+    border-left: 1px solid #2DBCFB !important;
+    border-right: 1px solid #2DBCFB !important;
+  }
+
+  .CodeMirror-selected {
+    background: #B6D6FD;
+  }
+
+  .cm-string {
+    color: #929292;
+  }
+}

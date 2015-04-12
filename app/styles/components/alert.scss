@@ -1,0 +1,20 @@
+@import "../base/sizes.scss";
+
+.alert {
+  position: fixed;
+  top: 20px;
+  z-index: 20000;
+  width: 100%;
+  text-align: center;
+}
+
+.alert__inner {
+  position: relative;
+  display: inline-block;
+  padding: 4px 10px;
+  font-weight: 700;
+  font-size: $t-s;
+  background-color: #FFF3BF;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}

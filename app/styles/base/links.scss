@@ -1,0 +1,18 @@
+@import "./colours.scss";
+
+a {
+  color: $c-link-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: darken($c-link-blue, 20%);
+    border-bottom: 1px solid darken($c-link-blue, 20%);
+  }
+
+  &:active {
+  }
+}
+
+[fast-click] {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

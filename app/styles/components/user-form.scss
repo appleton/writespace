@@ -1,0 +1,27 @@
+@import "../base/sizes.scss";
+@import "../base/colours.scss";
+
+.user-form {
+  margin: $s-xxl auto 0;
+  width: 320px;
+
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.user-form__heading {
+  margin: 0;
+  padding: $s-s $s-m;
+  border-bottom: 1px solid $c-border;
+  font-size: $t-m;
+  text-align: center;
+}
+
+.user-form__body {
+  padding: $s-s $s-m $s-m;
+}
+
+.user-form__body__btn{
+  margin: $s-xxm 0 $s-m;
+}

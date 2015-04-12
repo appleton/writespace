@@ -1,0 +1,25 @@
+@import "../base/sizes.scss";
+@import "../base/colours.scss";
+
+.modal-content {
+  border-radius: 2px;
+}
+
+.modal__header {
+  margin: 0;
+  padding: $s-m $s-m;
+  border-bottom: 1px solid $c-border;
+  font-size: $t-m;
+  text-align: center;
+}
+
+.modal__body {
+  padding: $s-l $s-m;
+  text-align: center;
+}
+
+.modal__actions {
+  padding: $s-s $s-m;
+  overflow: hidden;
+  border-top: 1px solid $c-border;
+}

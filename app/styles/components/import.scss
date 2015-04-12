@@ -1,0 +1,34 @@
+@import "../base/sizes.scss";
+@import "../base/colours.scss";
+
+.import__file-list {
+  height: 300px;
+  overflow: scroll;
+  margin: 0;
+  padding: $s-m $s-l;
+  list-style: none;
+  background: $c-page-bg;
+}
+
+.import__file-list__icon {
+  display: inline-block;
+  margin-right: $s-xs;
+  width: 15px;
+}
+
+.import__file-breadcrumbs {
+  padding: $s-xs $s-l;
+  border-bottom: 1px solid $c-border;
+}
+
+.import__actions {
+  min-height: 55px;
+}
+
+.import__actions__checkbox {
+  line-height: 35px;
+}
+
+.import__progress {
+  width: 100%;
+}

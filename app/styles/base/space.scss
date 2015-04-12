@@ -1,0 +1,43 @@
+@import "./sizes.scss";
+
+$sizes: $s-xxs xxs, $s-xs xs, $s-s s, $s-m m, $s-xm xm, $s-xxm xxm, $s-l l, $s-xl xl, $s-xxl xxl;
+
+@each $type in margin, padding {
+  @each $size in $sizes {
+    .u-#{$type}-T#{nth($size, 2)} {
+      #{$type}-top: #{nth($size, 1)};
+    }
+  }
+
+  @each $size in $sizes {
+    .u-#{$type}-R#{nth($size, 2)} {
+      #{$type}-right: #{nth($size, 1)};
+    }
+  }
+
+  @each $size in $sizes {
+    .u-#{$type}-B#{nth($size, 2)} {
+      #{$type}-bottom: #{nth($size, 1)};
+    }
+  }
+
+  @each $size in $sizes {
+    .u-#{$type}-L#{nth($size, 2)} {
+      #{$type}-left: #{nth($size, 1)};
+    }
+  }
+
+  @each $size in $sizes {
+    .u-#{$type}-V#{nth($size, 2)} {
+      #{$type}-top: #{nth($size, 1)};
+      #{$type}-bottom: #{nth($size, 1)};
+    }
+  }
+
+  @each $size in $sizes {
+    .u-#{$type}-H#{nth($size, 2)} {
+      #{$type}-left: #{nth($size, 1)};
+      #{$type}-right: #{nth($size, 1)};
+    }
+  }
+}

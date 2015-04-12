@@ -1,0 +1,25 @@
+@import "../base/colours.scss";
+@import "../base/media-queries.scss";
+
+.key {
+  display: inline-block;
+  padding: 5px 6px;
+  min-width: 20px;
+  background: $c-grey;
+  color: #fff;
+  border-radius: 3px;
+  font-family: Monaco, "Liberation Mono", Courier, monospace;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.key-list {
+  list-style: none;
+  padding: 0;
+}
+
+.key-hint {
+  @include respond-to(mobile) {
+    display: none;
+  }
+}

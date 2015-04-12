@@ -1,0 +1,118 @@
+@import "../base/sizes.scss";
+@import "../base/colours.scss";
+
+// Button colours
+@mixin button-color($color) {
+  background: $color;
+  border: 1px solid $color;
+  color: #fff;
+
+  &:hover {
+    background: darken($color, 5%);
+    border: 1px solid $color;
+    color: #fff;
+  }
+
+  &:active,
+  &:focus {
+    background: darken($color, 10%);
+  }
+
+  &:active {
+    border-top: 1px solid darken($color, 20%);
+  }
+
+  &.btn--hollow {
+    color: $color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: transparent;
+      border: 1px solid darken($color, 10%);
+      color: darken($color, 10%);
+    }
+    &:disabled {
+      border: 1px solid $c-light-grey;
+      color: $c-light-grey;
+    }
+  }
+}
+
+.btn {
+  @include button-color($c-mid-grey);
+  padding: 5px 17px;
+  border: 1px solid $c-mid-grey;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: $t-s;
+  outline: none;
+  text-decoration: none;
+}
+
+.btn--light {
+  @include button-color($c-light-grey);
+}
+
+.btn--green {
+  @include button-color($c-green);
+}
+
+.btn--red {
+  @include button-color($c-red);
+}
+
+.btn--blue {
+  @include button-color(#1081DE);
+}
+
+// Button modifiers
+
+.btn--large {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  font-size: $t-m;
+}
+
+.btn--small {
+  padding: 3px 10px;
+}
+
+.btn--hollow {
+  background: transparent;
+  color: $c-mid-grey;
+
+  &:hover,
+  &:active {
+    background: transparent;
+  }
+}
+
+.btn--half-left {
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn--half-right {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn--text,
+.btn--text:hover,
+.btn--text:active,
+.btn--text:focus {
+  padding: 0;
+  border: none;
+  background: none;
+  color: $c-link-blue;
+}
+
+.btn--text:hover,
+.btn--text:active,
+.btn--text:focus {
+  color: darken($c-link-blue, 20%);
+}
