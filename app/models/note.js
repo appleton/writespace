@@ -5,5 +5,8 @@ export default DS.Model.extend({
   text: DS.attr('string'),
   updatedAt: DS.attr('date', {
     defaultValue() { return Date.now(); }
+  }),
+  createdAt: DS.attr('date', {
+    defaultValue() { return Date.now(); }
   })
 });

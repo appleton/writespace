@@ -1,3 +1,8 @@
 Notes
 <button {{action 'invalidateSession'}}>logout</button>
+{{textarea value=text}}
+<button {{action 'createNote'}}>Save</button>
+{{#each model.notes as |note|}}
+  {{note.text}}
+{{/each}}
 {{outlet}}
