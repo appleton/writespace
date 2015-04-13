@@ -3,7 +3,7 @@ import CouchSession from '../models/couch-session';
 
 var CouchAuthenticator = AuthenticatorBase.extend({
   authenticate(data) {
-    return CouchSession.login(data);
+    return CouchSession.login(data).then(() => CouchSession.find());
   },
 
   restore() {
@@ -11,7 +11,6 @@ var CouchAuthenticator = AuthenticatorBase.extend({
   },
 
   invalidate() {
-    console.log(arguments);
     return CouchSession.logout();
   }
 });
