@@ -1,5 +1,6 @@
 import AuthenticatorBase from 'simple-auth/authenticators/base';
 import CouchSession from '../models/couch-session';
+import {db} from '../adapters/application';
 
 var CouchAuthenticator = AuthenticatorBase.extend({
   authenticate(data) {
@@ -11,7 +12,9 @@ var CouchAuthenticator = AuthenticatorBase.extend({
   },
 
   invalidate() {
-    return CouchSession.logout();
+    return CouchSession.logout().then(() => db.destroy()).then(() => {
+      document.location.reload();
+    });
   }
 });
 
