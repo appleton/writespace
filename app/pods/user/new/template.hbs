@@ -1,24 +1,26 @@
 <main class="user-form">
   <h1 class="user-form__heading">Create an account</h1>
 
-  <div class="form-errors" ng-show="errors.length">
-    {{errors}}
-  </div>
+  {{#if errors}}
+    <div class="form-errors">
+      {{errors}}
+    </div>
+  {{/if}}
 
-  <form class="user-form__body" ng-submit="createUser()">
+  <form class="user-form__body" {{action "createUser" on="submit"}}>
 
     <label class="label" for="email">Email address</label>
-    <input id="email" name="email" class="input" type="email" ng-model="form.email" />
+    {{input id="email" name="email" class="input" type="email" value=model.email}}
 
     <label class="label" for="password">Password</label>
-    <input id="password" name="password" class="input" type="password" ng-model="form.password" />
+    {{input id="password" name="password" class="input" type="password" value=model.password}}
 
-    <button class="user-form__body__btn btn btn--green btn--large" ng-disabled="formDisabled">
+    <button class="user-form__body__btn btn btn--green btn--large">
       Sign up
     </button>
 
     <div class="u-text-s u-text-center">
-      Already have an account? <a ui-sref="noAuth.sessions()">Log in here</a>
+      Already have an account? {{#link-to "user.login"}}Log in here{{/link-to}}
     </div>
   </form>
 </main>
