@@ -16,6 +16,9 @@ export default DS.Model.extend({
   }.property('email', 'password'),
 
   saveNew() {
+    var errors = this.get('errors');
+    errors.clear();
+
     return new Ember.RSVP.Promise((resolve, reject) => {
       return Ember.$.ajax({
         url: '/users',
@@ -25,6 +28,10 @@ export default DS.Model.extend({
       }).then(resolve, reject);
     }).then((data) => {
       return this.setProperties(data);
+    }).catch((jqXHR) => {
+      jqXHR.responseJSON.errors.forEach((error) => {
+        errors.add(error.param, error.msg);
+      });
     });
   }
 });
