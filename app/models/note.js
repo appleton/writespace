@@ -7,15 +7,21 @@ export default DS.Model.extend({
   updatedAt: DS.attr('date', { defaultValue() { return new Date(); } }),
   createdAt: DS.attr('date', { defaultValue() { return new Date(); } }),
 
-  firstLine: function() {
-    var line = this.get('text').split('\n')[0];
-    return Ember.isEmpty(line) ? 'untitled' : line;
+  lines: function() {
+    return (this.get('text') || '').split('\n');
   }.property('text'),
 
+  linesWithText: Ember.computed.filter('lines', (line) => !Ember.isEmpty(line)),
+
+  firstLine: function() {
+    var line = this.get('linesWithText')[0];
+    return Ember.isEmpty(line) ? 'untitled' : line;
+  }.property('linesWithText.[]'),
+
   secondLine: function() {
-    var line = this.get('text').split('\n')[1];
-    return Ember.isEmpty(line) ? '' : line;
-  }.property('text'),
+    var line = this.get('linesWithText')[1];
+    return Ember.isEmpty(line) ? 'untitled' : line;
+  }.property('linesWithText.[]'),
 
   matches(search) {
     return (this.get('text') || '').indexOf(search) !== -1;
