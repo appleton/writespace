@@ -1,8 +1,94 @@
-Notes
-<button {{action 'invalidateSession'}}>logout</button>
-{{textarea value=text}}
-<button {{action 'createNote'}}>Save</button>
-{{#each model.notes as |note|}}
-  {{note.text}}
-{{/each}}
+<header class="app-header u-text-right">
+
+</header>
+
+
+<section class="sidebar">
+  <header class="sidebar__header">
+    <div class="sidebar__header__nav sidebar__header__nav">
+      <button {{action "toggleMenu"}} class="icon icon--nav action"  title="Navigation">
+        <span class="action__text">Navigation</span>
+      </button>
+
+      {{#if menuIsVisible}}
+        <ul class="sidebar__header__nav__dropdown">
+          <li>
+            <span class="sidebar__header__nav__dropdown__header u-text-s u-margin-Rm">
+              {{user.name}}
+            </span>
+          </li>
+
+          <li>
+            <a class="sidebar__header__nav__dropdown__item" href="mailto:help@notesy.co">
+              <i class="sidebar__header__nav__dropdown__icon icon icon--question u-margin-Rxs"></i>
+              Help &amp; Feedback
+            </a>
+          </li>
+
+          <li>
+            <a class="sidebar__header__nav__dropdown__item" href="https://itunes.apple.com/gb/app/notesy/id896847758?mt=8">
+              <i class="sidebar__header__nav__dropdown__icon icon icon--iphone u-margin-Rxs"></i>
+              Get the iPhone app
+            </a>
+          </li>
+
+          <li>
+            <button {{action 'invalidateSession'}} class="sidebar__header__nav__dropdown__item">
+              <i class="sidebar__header__nav__dropdown__icon icon icon--logout u-margin-Rxs"></i>
+              Log out
+            </button>
+          </li>
+        </ul>
+      {{/if}}
+    </div>
+
+    <div class="sidebar__header__search">
+      {{input class="input input--search" type="search" name="search" id="search" value=searchText}}
+      {{#unless searchText}}
+        <label class="sidebar__header__search__label" for="search">
+          <i class="icon icon--search u-margin-Rxxs"></i>
+          search
+        </label>
+      {{/unless}}
+    </div>
+
+    <button {{action "createNote"}} class="sidebar__header__add action u-c-light-grey" title="New note">
+      <i class="icon icon--plus"></i>
+      <span class="action__text">New note</span>
+    </button>
+  </header>
+
+  <div class="sidebar__body">
+    <div class="sidebar__body__list">
+      {{#if notes}}
+        <ul class="sidebar__body__list">
+          {{#each notes as |note|}}
+            {{#link-to "notes.note" note tagName="li" class="sidebar__body__list__item"}}
+              {{#link-to "notes.note" note class="sidebar__body__list__item__link"}}
+                <span class="sidebar__body__list__item__link__title u-text-truncate u-inline-block">
+                  {{note.firstLine}}
+                </span>
+                <span class="sidebar__body__list__item__link__meta">
+                  {{time-ago note.updatedAt}}
+                </span>
+
+                <span class="sidebar__body__list__item__link__body u-text-truncate u-inline-block">
+                  {{note.secondLine}}
+                </span>
+              {{/link-to}}
+            {{/link-to}}
+          {{/each}}
+        </ul>
+      {{else}}
+        <div class="sidebar__body__empty">
+          <p class="u-text-center">
+            Welcome to Notesy<br />
+            Add your first note here!
+          </p>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</section>
+
 {{outlet}}

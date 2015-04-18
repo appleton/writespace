@@ -25,7 +25,9 @@ module.exports = function(environment) {
       routeIfAlreadyAuthenticated: 'notes'
     },
 
-    contentSecurityPolicy: {}
+    contentSecurityPolicy: {
+      'default-src': "'self'; img-src 'self' data:"
+    }
   };
 
   if (environment === 'development') {
