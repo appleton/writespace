@@ -18,4 +18,4 @@ export default Ember.Controller.extend({
       this.get('note').destroyRecord().then(() => this.transitionToRoute('notes'));
     }
   }
-})
+});

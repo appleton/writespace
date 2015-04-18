@@ -1,7 +1,10 @@
 <main class="main">
-  {{!-- TODO: Codemirror --}}
   <div class="editor-wrapper">
-    {{textarea class="editor" value=model.text}}
+    {{#if isTouch}}
+      {{textarea class="editor" value=model.text}}
+    {{else}}
+      {{ivy-codemirror value=model.text theme="notesy" mode="markdown" lineWrapping=true}}
+    {{/if}}
   </div>
 </main>
 
