@@ -17,7 +17,10 @@ export default {
   },
 
   find() {
-    return request({ method: 'GET' });
+    return request({ method: 'GET' }).then((session) => {
+      if (session.userCtx.name == null) throw new PouchDB.Errors.UNAUTHORIZED();
+      return session;
+    });
   },
 
   logout() {

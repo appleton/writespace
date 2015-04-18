@@ -1,5 +1,3 @@
 export var db = new PouchDB('notes');
 
-export default EmberPouch.Adapter.extend({
-  db: db,
-});
+export default EmberPouch.Adapter.extend({db});
