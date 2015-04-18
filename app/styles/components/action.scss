@@ -34,6 +34,9 @@
 }
 
 .action--delete {
+  position: relative;
+  top: -2px;
+
   @include respond-to(mobile) {
     float: right;
   }
