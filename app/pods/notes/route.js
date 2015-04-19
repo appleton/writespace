@@ -6,21 +6,21 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     var name = this.get('session.secure.userCtx.name');
     var userId = `org.couchdb.user:${name}`;
 
-    return Ember.RSVP.hash({
-      notes: this.store.find('note'),
-      user:  this.store.find('user', userId)
+    var user = this.store.find('user', userId);
+    var notes = this.findNotes(user);
+
+    return Ember.RSVP.hash({ notes, user });
+  },
+
+  findNotes(user) {
+    return user.then((user) => {
+      this.sync(user.get('notesUrl'));
+      return this.store.find('note');
     });
   },
 
-  afterModel: function({user}) {
-    var sync = PouchDB.sync('notes', user.get('notesUrl'), {
-      live: true,
-      retry: true
-    });
-    this.set('sync', sync);
-  },
-
-  cancelSync: function() {
-    this.get('sync').cancel();
-  }.on('deactivate')
+  sync(remoteDb) {
+    var sync = PouchDB.sync('notes', remoteDb, { live: true, retry: true });
+    this.on('deactivate', sync.cancel.bind(sync));
+  }
 });
