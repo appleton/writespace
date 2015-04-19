@@ -20,7 +20,7 @@ export default DS.Model.extend({
 
   secondLine: function() {
     var line = this.get('linesWithText')[1];
-    return Ember.isEmpty(line) ? 'untitled' : line;
+    return Ember.isEmpty(line) ? '' : line;
   }.property('linesWithText.[]'),
 
   matches(search) {

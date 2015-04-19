@@ -1,8 +1,15 @@
 @import "../base/sizes.scss";
 @import "../base/colours.scss";
 
-.modal-content {
+.ember-modal-overlay {
+  background: #000;
+  opacity: 0.3;
+}
+
+.ember-modal-dialog {
+  padding: 0;
   border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .modal__header {
@@ -14,8 +21,8 @@
 }
 
 .modal__body {
+  min-width: 400px;
   padding: $s-l $s-m;
-  text-align: center;
 }
 
 .modal__actions {

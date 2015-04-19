@@ -23,6 +23,9 @@ body {
   }
 }
 
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
 @import "base/colours.scss";
 @import "base/display.scss";
 @import "base/forms.scss";

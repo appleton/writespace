@@ -3,7 +3,28 @@
   <span class="action__text">Back to notes</span>
 {{/link-to}}
 
-<button {{action "deleteNote"}} class="action action--delete u-c-light-grey" title="Delete">
+<button {{action "toggleDeleteModal"}} class="action action--delete u-c-light-grey" title="Delete">
   <i class="icon icon--delete"></i>
   <span class="action__text">Delete note</span>
 </button>
+
+{{#if isShowingDeleteModal}}
+  {{#modal-dialog close="toggleDeleteModal"}}
+    <h3 class="modal__header">Delete note</h3>
+
+    <div class="modal__body">
+      <p>This note will be deleted for ever. Are you sure?</p>
+      <blockquote class="u-c-mid-grey">{{note.firstLine}}</blockquote>
+    </div>
+
+    <div class="modal__actions">
+      <button {{action "toggleDeleteModal"}} class="btn btn--hollow btn--grey u-margin-Rs">
+        Cancel <span class="key-hint">(esc)</span>
+      </button>
+
+      <button {{action "deleteNote"}} class="btn btn--red">
+        Delete <span class="key-hint">(enter)</span>
+      </button>
+    </div>
+  {{/modal-dialog}}
+{{/if}}
