@@ -6,6 +6,10 @@ export default Ember.Controller.extend({
       this.get('session').authenticate('authenticator:couchdb', {
         name: this.get('email'),
         password: this.get('password')
+      }).then(() => {
+        this.set('error', null);
+      }).catch((err) => {
+        this.set('error', err.responseJSON.reason);
       });
     }
   }
