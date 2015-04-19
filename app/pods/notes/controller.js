@@ -17,10 +17,6 @@ export default Ember.Controller.extend({
       this.store.createRecord('note').save().then((note) => {
         this.transitionToRoute('notes.note', note);
       });
-    },
-
-    toggleMenu() {
-      this.toggleProperty('menuIsVisible');
     }
   }
 });

@@ -6,40 +6,34 @@
 <section class="sidebar">
   <header class="sidebar__header">
     <div class="sidebar__header__nav sidebar__header__nav">
-      <button {{action "toggleMenu"}} class="icon icon--nav action"  title="Navigation">
-        <span class="action__text">Navigation</span>
-      </button>
+      {{#dropdown-menu icon="nav" title="Navigation"}}
+        <li>
+          <span class="sidebar__header__nav__dropdown__header u-text-s u-margin-Rm">
+            {{user.name}}
+          </span>
+        </li>
 
-      {{#if menuIsVisible}}
-        <ul class="sidebar__header__nav__dropdown">
-          <li>
-            <span class="sidebar__header__nav__dropdown__header u-text-s u-margin-Rm">
-              {{user.name}}
-            </span>
-          </li>
+        <li>
+          <a class="sidebar__header__nav__dropdown__item" href="mailto:help@notesy.co">
+            <i class="sidebar__header__nav__dropdown__icon icon icon--question u-margin-Rxs"></i>
+            Help &amp; Feedback
+          </a>
+        </li>
 
-          <li>
-            <a class="sidebar__header__nav__dropdown__item" href="mailto:help@notesy.co">
-              <i class="sidebar__header__nav__dropdown__icon icon icon--question u-margin-Rxs"></i>
-              Help &amp; Feedback
-            </a>
-          </li>
+        <li>
+          <a class="sidebar__header__nav__dropdown__item" href="https://itunes.apple.com/gb/app/notesy/id896847758?mt=8">
+            <i class="sidebar__header__nav__dropdown__icon icon icon--iphone u-margin-Rxs"></i>
+            Get the iPhone app
+          </a>
+        </li>
 
-          <li>
-            <a class="sidebar__header__nav__dropdown__item" href="https://itunes.apple.com/gb/app/notesy/id896847758?mt=8">
-              <i class="sidebar__header__nav__dropdown__icon icon icon--iphone u-margin-Rxs"></i>
-              Get the iPhone app
-            </a>
-          </li>
-
-          <li>
-            <button {{action 'invalidateSession'}} class="sidebar__header__nav__dropdown__item">
-              <i class="sidebar__header__nav__dropdown__icon icon icon--logout u-margin-Rxs"></i>
-              Log out
-            </button>
-          </li>
-        </ul>
-      {{/if}}
+        <li>
+          <button {{action 'invalidateSession'}} class="sidebar__header__nav__dropdown__item">
+            <i class="sidebar__header__nav__dropdown__icon icon icon--logout u-margin-Rxs"></i>
+            Log out
+          </button>
+        </li>
+      {{/dropdown-menu}}
     </div>
 
     <div class="sidebar__header__search">

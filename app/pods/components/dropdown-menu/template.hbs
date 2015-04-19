@@ -1,0 +1,9 @@
+<button {{action "toggleMenu"}} class="icon icon--{{icon}} action"  title="{{title}}">
+  <span class="action__text">{{title}}</span>
+</button>
+
+{{#if menuIsVisible}}
+  <ul class="sidebar__header__nav__dropdown">
+    {{yield}}
+  </ul>
+{{/if}}

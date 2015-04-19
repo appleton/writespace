@@ -9,6 +9,7 @@
   font-size: $t-l;
   line-height: 1.3;
   padding: 0;
+  cursor: pointer;
 
   &:hover {
     color: darken($c-light-grey, 10%);
