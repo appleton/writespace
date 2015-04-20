@@ -21,7 +21,7 @@ export default DS.Model.extend({
 
     return new Ember.RSVP.Promise((resolve, reject) => {
       return Ember.$.ajax({
-        url: '/users',
+        url: `${config.API_URL}/users`,
         method: 'post',
         dataType: 'json',
         data: this.get('createParams')
