@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
     deleteNote() {
       this.get('note').destroyRecord().then(() => {
         this.toggleDeleteModal();
-        this.transitionToRoute('notes')
+        this.transitionToRoute('notes');
       });
     }
   }
