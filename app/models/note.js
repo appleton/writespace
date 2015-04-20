@@ -24,6 +24,6 @@ export default DS.Model.extend({
   }.property('linesWithText.[]'),
 
   matches(search) {
-    return (this.get('text') || '').indexOf(search) !== -1;
+    return (this.get('text').toLowerCase() || '').indexOf(search.toLowerCase()) !== -1;
   }
 });
