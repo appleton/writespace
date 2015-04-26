@@ -1,0 +1,32 @@
+<main class="user-form">
+  <h1 class="user-form__heading">Email password reset</h1>
+
+  {{#unless model.errors.isEmpty}}
+    <div class="form-errors">
+      {{#each model.errors.email as |error|}}
+        {{error.message}}
+      {{/each}}
+    </div>
+  {{/unless}}
+
+  {{#if message}}
+    <div class="form-message">
+      {{message}}
+    </div>
+  {{/if}}
+
+  <form class="user-form__body" {{action "resetPassword" on="submit"}}>
+
+    <label class="label" for="email">Email address</label>
+    {{input id="email" name="email" class="input" type="email" value=model.email }}
+
+    <button disabled={{isDisabled}} class="user-form__body__btn btn btn--green btn--large">
+      Send password reset
+    </button>
+
+    <div class="u-text-s u-text-center">
+      {{link-to "Back to log in" "user.login"}}
+    </div>
+  </form>
+</main>
+

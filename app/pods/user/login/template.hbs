@@ -7,7 +7,7 @@
     {{input tabindex="1" id="email" name="email" class="input" type="email" value=email}}
 
     <label class="label" for="password">Password</label>
-    <a tabindex="4" class="u-text-s" ui-sref="passwords.new()">Forgot?</a>
+    {{link-to "Forgot?" "user.password.new" tabindex="4" class="u-text-s"}}
     {{input tabindex="2" id="password" name="password" class="input" type="password" value=password}}
 
     <button tabindex="3" class="user-form__body__btn btn btn--green btn--large">

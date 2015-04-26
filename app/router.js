@@ -13,5 +13,9 @@ export default Router.map(function() {
   this.resource('user', function() {
     this.route('login');
     this.route('new');
+
+    this.route('password', function() {
+      this.route('new');
+    });
   });
 });
