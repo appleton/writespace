@@ -12,9 +12,29 @@ export default Ember.Controller.extend({
     });
   },
 
+  notifySuccess() {
+    this.notifications.clearAll();
+    this.notifications.addNotification({
+      message: 'Password updated',
+      type: 'success',
+      autoClear: true
+    });
+  },
+
+  notifyError(msg) {
+    this.notifications.clearAll();
+    this.notifications.addNotification({
+      message: msg,
+      type: 'error'
+    });
+  },
+
   actions: {
     editPassword() {
-      this.get('model').save().then(this.authenticate.bind(this));
+      this.get('model').save().then(() => {
+        this.notifySuccess();
+        this.authenticate();
+      }).catch((res) => this.notifyError(res.responseJSON.errors[0].msg));
     }
   }
 });

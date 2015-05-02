@@ -25,6 +25,10 @@ module.exports = function(environment) {
       routeIfAlreadyAuthenticated: 'notes'
     },
 
+    'ember-cli-notifications': {
+      includeFontAwesome: true
+    },
+
     contentSecurityPolicy: {
       'default-src': "'self'; img-src 'self' data:"
     }

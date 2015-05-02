@@ -16,6 +16,7 @@
     "ember-simple-auth": "0.8.0-beta.1",
     "codemirror": "~4.8.0",
     "ember-cli-codemirror-shim": "~0.0.1",
-    "transform-pouch": "~1.0.1"
+    "transform-pouch": "~1.0.1",
+    "font-awesome": "~4.3.0"
   }
 }
