@@ -16,6 +16,7 @@ export default Router.map(function() {
 
     this.route('password', function() {
       this.route('new');
+      this.route('edit');
     });
   });
 });

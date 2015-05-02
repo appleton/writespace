@@ -1,0 +1,25 @@
+<main class="user-form">
+  <h1 class="user-form__heading">Enter a new password</h1>
+
+  {{#unless model.errors.isEmpty}}
+    <div class="form-errors">
+      {{#each model.errors as |error|}}
+        {{error.message}}
+      {{/each}}
+    </div>
+  {{/unless}}
+
+  <form class="user-form__body" {{action "editPassword" on="submit"}}>
+
+    <label class="label" for="password">New password</label>
+    {{input id="password" name="password" class="input" type="password" value=model.password}}
+
+    <button class="user-form__body__btn btn btn--green btn--large" disabled={{passwordIsEmpty}}>
+      Change password
+    </button>
+
+    <div class="u-text-s u-text-center">
+      {{link-to "Back to sign in" "user.login"}}
+    </div>
+  </form>
+</main>

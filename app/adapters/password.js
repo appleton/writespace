@@ -9,5 +9,12 @@ export default DS.RESTAdapter.extend({
     opts.crossDomain = true;
     opts.xhrFields = { withCredentials: true };
     return this._super(url, method, opts);
+  },
+
+  createRecord(store, type, snapshot) {
+    if (Ember.isPresent(snapshot.attr('token'))) {
+      return this.updateRecord.apply(this, arguments);
+    }
+    return this._super.apply(this, arguments);
   }
 });
