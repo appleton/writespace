@@ -146,8 +146,6 @@
 }
 
 .sidebar__body__list {
-  -webkit-overflow-scrolling: touch;
-  overflow: scroll;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -155,40 +153,32 @@
 }
 
 .sidebar__body__list__item {
-  min-height: 70px;
   background: #F8F8F8;
   border-bottom: 1px solid $c-border;
-
-  &:hover {
-    background: $c-page-bg;
-  }
-
-  &.active {
-    background: #FFF;
-  }
-}
-
-.sidebar__body__list__item__link {
   overflow: hidden;
   display: block;
   padding: 10px 10px;
+  height: 72px;
+  width: 300px;
   color: #777;
 
+  &.active {
+    background: #FFF;
+    color: $c-grey;
+  }
+
   &:hover {
-    border-bottom: none;
+    background: $c-page-bg;
+    border-bottom: 1px solid $c-border;
     color: $c-grey;
   }
 }
 
-.is-active .sidebar__body__list__item__link {
-  color: $c-grey;
-}
-
-.sidebar__body__list__item__link__title {
+.sidebar__body__list__item__title {
   width: 62%;
 }
 
-.sidebar__body__list__item__link__meta {
+.sidebar__body__list__item__meta {
   display: block;
   float: right;
   width: 35%;
@@ -198,12 +188,12 @@
   line-height: 2.4;
 }
 
-.sidebar__body__list__item__link__meta__icon {
+.sidebar__body__list__item__meta__icon {
   position: relative;
   top: 1px;
 }
 
-.sidebar__body__list__item__link__body {
+.sidebar__body__list__item__body {
   display: block;
   color: $c-light-grey;
   font-size: $t-s;

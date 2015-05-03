@@ -22,7 +22,7 @@ export default Ember.Controller.extend({
 
   actions: {
     resetPassword() {
-      this.get('model').save().then((res) => {
+      this.get('model').save().then(() => {
         this.notifySuccess();
         this.set('model', this.store.createRecord('password'));
       }).catch((res) => this.notifyError(res.responseJSON.errors[0].msg));

@@ -53,35 +53,31 @@
   </header>
 
   <div class="sidebar__body">
-    <div class="sidebar__body__list">
-      {{#if notes}}
-        <ul class="sidebar__body__list">
-          {{#each notes as |note|}}
-            {{#link-to "notes.note" note tagName="li" class="sidebar__body__list__item"}}
-              {{#link-to "notes.note" note class="sidebar__body__list__item__link"}}
-                <span class="sidebar__body__list__item__link__title u-text-truncate u-inline-block">
-                  {{note.firstLine}}
-                </span>
-                <span class="sidebar__body__list__item__link__meta">
-                  {{time-ago date=note.updatedAt}}
-                </span>
+    {{#if notes}}
+      {{#ember-list class="sidebar__body__list" items=notes height=400 rowHeight=72 width=300}}
+        {{#link-to "notes.note" id class="sidebar__body__list__item"}}
+          <span class="sidebar__body__list__item__title u-text-truncate u-inline-block">
+            {{firstLine}}
+          </span>
+          <span class="sidebar__body__list__item__meta">
+            {{time-ago date=updatedAt}}
+          </span>
 
-                <span class="sidebar__body__list__item__link__body u-text-truncate u-inline-block">
-                  {{note.secondLine}}
-                </span>
-              {{/link-to}}
-            {{/link-to}}
-          {{/each}}
-        </ul>
-      {{else}}
+          <span class="sidebar__body__list__item__body u-text-truncate u-inline-block">
+            {{secondLine}}
+          </span>
+        {{/link-to}}
+      {{/ember-list}}
+    {{else}}
+      <div class="sidebar__body__list">
         <div class="sidebar__body__empty">
           <p class="u-text-center">
             Welcome to Notesy<br />
             Add your first note here!
           </p>
         </div>
-      {{/if}}
-    </div>
+      </div>
+    {{/if}}
   </div>
 </section>
 
