@@ -13,11 +13,18 @@ db.transform({
   incoming(doc) {
     Object.keys(doc.data).forEach((key) => doc[key] = doc.data[key]);
     delete doc.data;
+
+    if (doc.createdAt != null) doc.createdAt = (new Date(doc.createdAt)).valueOf();
+    if (doc.updatedAt != null) doc.updatedAt = (new Date(doc.updatedAt)).valueOf();
+
     return doc;
   },
 
   outgoing(doc) {
     var data = {};
+
+    if (doc.createdAt != null) doc.createdAt = (new Date(doc.createdAt)).valueOf();
+    if (doc.updatedAt != null) doc.updatedAt = (new Date(doc.updatedAt)).valueOf();
 
     Object.keys(doc).forEach((key) => {
       if (key === '_id' || key === '_rev') return;
