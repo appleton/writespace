@@ -1,0 +1,12 @@
+{{#link-to "notes.note" id class="sidebar__body__list__item"}}
+  <span class="sidebar__body__list__item__title u-text-truncate u-inline-block">
+    {{firstLine}}
+  </span>
+  <span class="sidebar__body__list__item__meta">
+    {{time-ago date=updatedAt}}
+  </span>
+
+  <span class="sidebar__body__list__item__body u-text-truncate u-inline-block">
+    {{secondLine}}
+  </span>
+{{/link-to}}

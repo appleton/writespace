@@ -54,20 +54,7 @@
 
   <div class="sidebar__body">
     {{#if notes}}
-      {{#ember-list class="sidebar__body__list" items=notes height=400 rowHeight=72 width=300}}
-        {{#link-to "notes.note" id class="sidebar__body__list__item"}}
-          <span class="sidebar__body__list__item__title u-text-truncate u-inline-block">
-            {{firstLine}}
-          </span>
-          <span class="sidebar__body__list__item__meta">
-            {{time-ago date=updatedAt}}
-          </span>
-
-          <span class="sidebar__body__list__item__body u-text-truncate u-inline-block">
-            {{secondLine}}
-          </span>
-        {{/link-to}}
-      {{/ember-list}}
+      {{view "note-list" content=notes}}
     {{else}}
       <div class="sidebar__body__list">
         <div class="sidebar__body__empty">
