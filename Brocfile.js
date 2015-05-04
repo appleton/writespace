@@ -22,8 +22,5 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 app.import('bower_components/pouchdb/dist/pouchdb.js');
-app.import('bower_components/transform-pouch/dist/pouchdb.transform-pouch.js');
-app.import('bower_components/relational-pouch/dist/pouchdb.relational-pouch.js');
-app.import('bower_components/ember-pouch/dist/globals/main.js');
 
 module.exports = app.toTree();
