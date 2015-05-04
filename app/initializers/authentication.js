@@ -1,6 +1,6 @@
 import AuthenticatorBase from 'simple-auth/authenticators/base';
 import CouchSession from '../models/couch-session';
-import {db} from '../adapters/application';
+import {db} from '../adapters/note';
 
 var CouchAuthenticator = AuthenticatorBase.extend({
   authenticate(data) {
