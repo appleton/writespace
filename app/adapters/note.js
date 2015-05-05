@@ -40,7 +40,7 @@ export default DS.RESTAdapter.extend({
     this._listenToChanges();
   },
 
-  findAll(type) {
+  findAll() {
     return this.db.allDocs({ include_docs: true }).then((res) => {
       return { notes: res.rows.map((row) => toRecord(row.doc)) };
     });

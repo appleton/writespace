@@ -16,6 +16,7 @@
     "codemirror": "~4.8.0",
     "ember-cli-codemirror-shim": "~0.0.1",
     "font-awesome": "~4.3.0",
-    "pouchdb": "~3.4.0"
+    "pouchdb": "~3.4.0",
+    "mousetrap": "~1.5.2"
   }
 }

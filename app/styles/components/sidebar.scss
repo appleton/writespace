@@ -161,7 +161,7 @@
     color: $c-grey;
   }
 
-  &:hover {
+  &:hover, &.is-selected {
     background: $c-page-bg;
     border-bottom: 1px solid $c-border;
     color: $c-grey;

@@ -37,7 +37,7 @@
     </div>
 
     <div class="sidebar__header__search">
-      {{input class="input input--search" type="search" name="search" id="search" value=searchText}}
+      {{focusable-input isFocused=focusSearch class="input input--search" type="search" name="search" id="search" value=searchText}}
       {{#unless searchText}}
         <label class="sidebar__header__search__label" for="search">
           <i class="icon icon--search u-margin-Rxxs"></i>
@@ -67,5 +67,26 @@
     {{/if}}
   </div>
 </section>
+
+{{#if isShowingHelpModal}}
+  {{#modal-dialog close="hideHelp"}}
+    <h3 class="modal__header">Keyboard shortcuts</h3>
+
+    <div class="modal__body">
+      <p>
+        Shortcuts are disabled when editing a note. Hit <span class="key">esc</span>
+        to leave edit mode.
+      </p>
+      <ul class="key-list">
+        <li><span class="key">n</span> New note</li>
+        <li><span class="key">d</span> Delete current note</li>
+        <li><span class="key">j</span> Go to next note</li>
+        <li><span class="key">k</span> Go to previous note</li>
+        <li><span class="key">f</span> Focus the cursor on the current note</li>
+        <li><span class="key">/</span> Search notes</li>
+      </ul>
+    </div>
+  {{/modal-dialog}}
+{{/if}}
 
 {{outlet}}
