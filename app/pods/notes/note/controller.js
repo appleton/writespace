@@ -15,20 +15,34 @@ export default Ember.Controller.extend({
     Ember.run.debounce(this, this.saveNote, 1000);
   }.observes('note.text'),
 
-  toggleDeleteModal() {
-    this.toggleProperty('isShowingDeleteModal');
+  showDeleteModal() {
+    this.set('isShowingDeleteModal', true);
+  },
+
+  hideDeleteModal() {
+    this.set('isShowingDeleteModal', false);
   },
 
   actions: {
-    toggleDeleteModal() {
-      this.toggleDeleteModal();
+    showDeleteModal() {
+      this.showDeleteModal();
+    },
+
+    hideDeleteModal() {
+      this.hideDeleteModal();
     },
 
     deleteNote() {
+      if (!this.get('isShowingDeleteModal')) return;
+
       this.get('note').destroyRecord().then(() => {
-        this.toggleDeleteModal();
+        this.hideDeleteModal();
         this.transitionToRoute('notes');
       });
+    },
+
+    focusNote() {
+      console.log('TODO');
     }
   }
 });

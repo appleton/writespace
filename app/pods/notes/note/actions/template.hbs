@@ -3,13 +3,13 @@
   <span class="action__text">Back to notes</span>
 {{/link-to}}
 
-<button {{action "toggleDeleteModal"}} class="action action--delete u-c-light-grey" title="Delete">
+<button {{action "showDeleteModal"}} class="action action--delete u-c-light-grey" title="Delete">
   <i class="icon icon--delete"></i>
   <span class="action__text">Delete note</span>
 </button>
 
 {{#if isShowingDeleteModal}}
-  {{#modal-dialog close="toggleDeleteModal"}}
+  {{#modal-dialog close="hideDeleteModal"}}
     <h3 class="modal__header">Delete note</h3>
 
     <div class="modal__body">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="modal__actions">
-      <button {{action "toggleDeleteModal"}} class="btn btn--hollow btn--grey u-margin-Rs">
+      <button {{action "hideDeleteModal"}} class="btn btn--hollow btn--grey u-margin-Rs">
         Cancel <span class="key-hint">(esc)</span>
       </button>
 

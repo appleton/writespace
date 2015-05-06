@@ -1,10 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  needs: ['application'],
   user:  Ember.computed.alias('model.user'),
   notes: Ember.computed.sort('filteredNotes', (a, b) => b.get('updatedAt') - a.get('updatedAt')),
-  currentRoute: Ember.computed.oneWay('controllers.application.currentRoute'),
 
   selectedNote: function() {
     return this.get('notes').findBy('isSelected');

@@ -32,6 +32,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   },
 
   keyboardShortcuts: {
+    n: { action: 'createNote', global: false },
     j: { action: 'nextNote', global: false },
     k: { action: 'prevNote', global: false },
     enter: { action: 'goToNote', global: false },
@@ -40,6 +41,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   },
 
   actions: {
+    createNote() { this.controller.send('createNote'); },
     nextNote() { this.controller.send('nextNote'); },
     prevNote() { this.controller.send('prevNote'); },
     goToNote() { this.controller.send('goToNote'); },
