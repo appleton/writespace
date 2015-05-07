@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
 
   selectedNote: function() {
     return this.get('notes').findBy('isSelected');
-  }.property('notes.@each.isSelected'),
+  }.property('notes.[]', 'notes.@each.isSelected'),
 
   filteredNotes: function() {
     var search = this.get('searchText');
@@ -16,9 +16,16 @@ export default Ember.Controller.extend({
     return notes.filter((note) => note.matches(search));
   }.property('model.notes.@each.text', 'searchText'),
 
+  // TODO: update when a note is deleted
+  setSelectedNote(note) {
+    this.get('selectedNote').set('isSelected', false);
+    note.set('isSelected', true);
+  },
+
   actions: {
     createNote() {
       this.store.createRecord('note').save().then((note) => {
+        this.setSelectedNote(note);
         this.transitionToRoute('notes.note', note);
       });
     },
@@ -30,10 +37,7 @@ export default Ember.Controller.extend({
 
       if (currentIndex === (notes.length - 1)) return;
 
-      var next = notes[currentIndex + 1];
-
-      next.set('isSelected', true);
-      current.set('isSelected', false);
+      this.setSelectedNote(notes[currentIndex + 1]);
     },
 
     prevNote() {
@@ -43,10 +47,7 @@ export default Ember.Controller.extend({
 
       if (currentIndex === 0) return;
 
-      var previous = notes[currentIndex - 1];
-
-      previous.set('isSelected', true);
-      current.set('isSelected', false);
+      this.setSelectedNote(notes[currentIndex - 1]);
     },
 
     goToNote() {
