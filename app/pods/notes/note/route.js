@@ -12,13 +12,11 @@ export default Ember.Route.extend(KeyboardShortcuts, {
   },
 
   keyboardShortcuts: {
-    f: { action: 'focusNote', global: false },
     d: { action: 'showDeleteModal', global: false },
     enter: { action: 'deleteNote', global: false }
   },
 
   actions: {
-    focusNote() { this.controller.send('focusNote'); },
     deleteNote() { this.controller.send('deleteNote'); },
     showDeleteModal() { this.controller.send('showDeleteModal'); },
   }

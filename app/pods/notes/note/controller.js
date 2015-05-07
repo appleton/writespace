@@ -39,10 +39,6 @@ export default Ember.Controller.extend({
         this.hideDeleteModal();
         this.transitionToRoute('notes');
       });
-    },
-
-    focusNote() {
-      console.log('TODO');
     }
   }
 });
