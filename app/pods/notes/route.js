@@ -16,7 +16,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   setupController(controller, model) {
     this._super(controller, model);
     // TODO: select the current note if we're not in the index route
-    controller.set('notes.firstObject.isSelected', true);
+    this.selectFirstNote();
   },
 
   findNotes(user) {
@@ -29,6 +29,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   sync(remoteDb) {
     var sync = PouchDB.sync('notes', remoteDb, { live: true, retry: true });
     this.on('deactivate', sync.cancel.bind(sync));
+  },
+
+  selectFirstNote() {
+    this.controller.set('notes.firstObject.isSelected', true);
   },
 
   keyboardShortcuts: {
@@ -46,6 +50,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
     prevNote() { this.controller.send('prevNote'); },
     goToNote() { this.controller.send('goToNote'); },
     showHelp() { this.controller.send('showHelp'); },
-    focusSearch() { this.controller.send('focusSearch'); }
+    focusSearch() { this.controller.send('focusSearch'); },
+    noteDeleted() { this.selectFirstNote(); }
   }
 });

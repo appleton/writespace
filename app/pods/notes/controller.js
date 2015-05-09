@@ -16,7 +16,6 @@ export default Ember.Controller.extend({
     return notes.filter((note) => note.matches(search));
   }.property('model.notes.@each.text', 'searchText'),
 
-  // TODO: update when a note is deleted
   setSelectedNote(note) {
     this.get('selectedNote').set('isSelected', false);
     note.set('isSelected', true);
