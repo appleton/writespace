@@ -152,6 +152,7 @@
   overflow: hidden;
   display: block;
   padding: 10px 10px;
+  position: relative;
   height: 72px;
   width: 300px;
   color: #777;
@@ -165,6 +166,17 @@
     background: $c-page-bg;
     border-bottom: 1px solid $c-border;
     color: $c-grey;
+  }
+
+  &.is-selected:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    content: '';
+    background: $c-blue;
   }
 }
 
