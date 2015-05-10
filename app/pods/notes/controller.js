@@ -63,6 +63,10 @@ export default Ember.Controller.extend({
 
     focusSearch() {
       this.set('focusSearch', true);
+    },
+
+    setSelectedNote(note) {
+      this.setSelectedNote(note);
     }
   }
 });

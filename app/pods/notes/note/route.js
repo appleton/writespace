@@ -6,9 +6,10 @@ export default Ember.Route.extend(KeyboardShortcuts, {
     return this.store.find('note', params.id);
   },
 
-  renderTemplate(...args) {
+  renderTemplate(controller, model) {
     this.render('notes.note.actions', { outlet: 'app-header' });
-    return this._super(...args);
+    this.send('noteSelected', model);
+    return this._super(controller, model);
   },
 
   keyboardShortcuts: {
@@ -18,6 +19,6 @@ export default Ember.Route.extend(KeyboardShortcuts, {
 
   actions: {
     deleteNote() { this.controller.send('deleteNote'); },
-    showDeleteModal() { this.controller.send('showDeleteModal'); },
+    showDeleteModal() { this.controller.send('showDeleteModal'); }
   }
 });

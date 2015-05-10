@@ -15,7 +15,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
 
   setupController(controller, model) {
     this._super(controller, model);
-    // TODO: select the current note if we're not in the index route
     this.selectFirstNote();
   },
 
@@ -51,6 +50,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
     goToNote() { this.controller.send('goToNote'); },
     showHelp() { this.controller.send('showHelp'); },
     focusSearch() { this.controller.send('focusSearch'); },
-    noteDeleted() { this.selectFirstNote(); }
+    noteDeleted() { this.selectFirstNote(); },
+    noteSelected(note) { this.controller.send('setSelectedNote', note); }
   }
 });
