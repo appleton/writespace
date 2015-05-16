@@ -17,4 +17,4 @@ export default IvyCodemirror.extend(KeyboardShortcuts, {
       document.body.querySelector('button').focus();
     }
   }
-})
+});

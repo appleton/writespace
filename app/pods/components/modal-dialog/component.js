@@ -5,4 +5,4 @@ export default ModalDialog.extend(KeyboardShortcuts, {
   keyboardShortcuts: {
     esc: { action: 'close', global: false}
   }
-})
+});
