@@ -31,7 +31,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   },
 
   selectFirstNote() {
-    this.controller.set('notes.firstObject.isSelected', true);
+    let firstNote = this.controller.get('notes.firstObject');
+    if (firstNote) firstNote.set('isSelected', true);
   },
 
   keyboardShortcuts: {

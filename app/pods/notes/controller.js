@@ -17,7 +17,8 @@ export default Ember.Controller.extend({
   }.property('model.notes.@each.text', 'searchText'),
 
   setSelectedNote(note) {
-    this.get('selectedNote').set('isSelected', false);
+    let selectedNote = this.get('selectedNote');
+    if (selectedNote) selectedNote.set('isSelected', false);
     note.set('isSelected', true);
   },
 
