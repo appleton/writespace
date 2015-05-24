@@ -57,8 +57,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.COUCH_URL = process.env.COUCH_URL;
-    ENV.API_URL = 'https://api.notesy.co';
+    ENV.COUCH_URL = 'https://db.notesy.co';
+    ENV.API_URL = 'https://api.scribly.co';
   }
 
   ENV.contentSecurityPolicy['connect-src'] = "'self' " + ENV.COUCH_URL + ' ' + ENV.API_URL;

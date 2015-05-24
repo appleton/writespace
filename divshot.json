@@ -1,0 +1,10 @@
+{
+  "name": "scribly",
+  "root": "./dist",
+  "routes": {
+    "/tests": "tests/index.html",
+    "/tests/**": "tests/index.html",
+    "/**": "index.html"
+  },
+  "COUCH_URL": "https://db.notesy.co"
+}
