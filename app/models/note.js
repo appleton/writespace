@@ -4,8 +4,8 @@ import Ember from 'ember';
 export default DS.Model.extend({
   rev: DS.attr('string'),
   text: DS.attr('string', { defaultValue: '' }),
-  updatedAt: DS.attr('date', { defaultValue() { return new Date(); } }),
-  createdAt: DS.attr('date', { defaultValue() { return new Date(); } }),
+  updatedAt: DS.attr('numeric-date', { defaultValue() { return new Date(); } }),
+  createdAt: DS.attr('numeric-date', { defaultValue() { return new Date(); } }),
 
   lines: function() {
     return (this.get('text') || '').split('\n');
