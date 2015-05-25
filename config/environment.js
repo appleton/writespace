@@ -40,8 +40,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.COUCH_URL = 'http://localhost:5984';
-    ENV.API_URL = 'http://localhost:1337';
+    ENV.COUCH_URL = process.env.COUCH_URL || 'http://localhost:5984';
+    ENV.API_URL = process.env.API_URL || 'http://localhost:1337';
   }
 
   if (environment === 'test') {
@@ -57,8 +57,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.COUCH_URL = 'https://db.notesy.co';
-    ENV.API_URL = 'https://api.scribly.co';
+    ENV.COUCH_URL = process.env.COUCH_URL || 'https://db.notesy.co';
+    ENV.API_URL = process.env.API_URL || 'https://api.scribly.co';
   }
 
   ENV.contentSecurityPolicy['connect-src'] = "'self' " + ENV.COUCH_URL + ' ' + ENV.API_URL;
