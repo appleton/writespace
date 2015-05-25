@@ -41,7 +41,10 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+```bash
+$ git remote add heroku //git.heroku.com/scribly.git
+$ git push heroku master
+```
 
 ## Further Reading / Useful Links
 
