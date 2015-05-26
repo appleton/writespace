@@ -1,7 +1,6 @@
-# Notesy-client
+# Scribly
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Scribly is an Ember.js note taking app.
 
 ## Prerequisites
 
@@ -13,13 +12,13 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](http://www.ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
 * [CouchDB](http://couchdb.apache.org/) running on http://localhost:5984
-* [Notesy API](https://github.com/appleton/notesy-api) running on http://localhost:1337
+* [Scribly API](https://github.com/appleton/scribly-api) running on http://localhost:1337
 
 ## Installation
 
 ```bash
-$ git clone git@github.com:appleton/notesy.git
-$ cd notesy
+$ git clone git@github.com:appleton/scribly.git
+$ cd scribly
 $ npm install
 $ bower install
 ```
@@ -39,6 +38,6 @@ $ npm start
 ### Deploying
 
 ```bash
-$ git remote add heroku //git.heroku.com/scribly.git
+$ git remote add heroku https://git.heroku.com/scribly.git
 $ git push heroku master
 ```

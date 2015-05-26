@@ -2,8 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'notesy-client',
-    podModulePrefix: 'notesy-client/pods',
+    modulePrefix: 'scribly',
+    podModulePrefix: 'scribly/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

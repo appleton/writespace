@@ -1,7 +1,7 @@
 {
-  "name": "notesy-client",
+  "name": "scribly",
   "version": "0.0.0",
-  "description": "Small description for notesy-client goes here",
+  "description": "An Ember.js front end for Scribly",
   "private": true,
   "directories": {
     "doc": "doc",
