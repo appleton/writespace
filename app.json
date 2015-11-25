@@ -1,0 +1,15 @@
+{
+  "name": "scribly",
+  "scripts": {
+  },
+  "env": {
+    "API_URL": "https://api.scribly.co",
+    "BUILDPACK_URL": "https://github.com/tonycoco/heroku-buildpack-ember-cli.git",
+    "COUCH_URL": "https://db.notesy.co",
+    "EMBER_ENV": "production",
+    "FORCE_HTTPS": "true"
+  },
+  "addons": [
+
+  ]
+}
