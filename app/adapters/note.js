@@ -1,7 +1,13 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 
-export var db = new PouchDB('notes');
+let db;
+
+if (Worker in window) {
+  db = new PouchDB('notes', { adapter: 'worker' });
+} else {
+  db = new PouchDB('notes');
+}
 
 function toRecord(doc) {
   doc.rev = doc._rev;
