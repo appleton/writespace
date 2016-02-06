@@ -17,7 +17,8 @@
     "font-awesome": "~4.3.0",
     "pouchdb": "~5.2.0",
     "mousetrap": "~1.5.2",
-    "worker-pouch": "nolanlawson/worker-pouch#~1.0.1"
+    "worker-pouch": "nolanlawson/worker-pouch#~1.0.1",
+    "ember-simple-auth": "0.8.0"
   },
   "resolutions": {
     "qunit-notifications": "~0.1.0"
