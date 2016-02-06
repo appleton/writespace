@@ -55,7 +55,20 @@
 
   <div class="sidebar__body">
     {{#if notes}}
-      {{view "note-list" content=notes}}
+      {{#each notes as |note|}}
+        {{#link-to "notes.note" note.id classNameBindings=":sidebar__body__list__item note.isSelected:is-selected"}}
+          <span class="sidebar__body__list__item__title u-text-truncate u-inline-block">
+            {{note.firstLine}}
+          </span>
+          <span class="sidebar__body__list__item__meta">
+            {{time-ago date=note.updatedAt}}
+          </span>
+
+          <span class="sidebar__body__list__item__body u-text-truncate u-inline-block">
+            {{note.secondLine}}
+          </span>
+        {{/link-to}}
+      {{/each}}
     {{else}}
       <div class="sidebar__body__list">
         <div class="sidebar__body__empty">
