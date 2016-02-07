@@ -55,7 +55,7 @@
 
   <div class="sidebar__body">
     {{#if notes}}
-      {{#ember-collection items=notes cell-layout=(fixed-grid-layout 300 72) as |note|}}
+      {{#ember-collection items=notes cell-layout=(fixed-grid-layout 298 72) as |note|}}
         {{#link-to "notes.note" note.id classNameBindings=":sidebar__body__list__item note.isSelected:is-selected"}}
           <span class="sidebar__body__list__item__title u-text-truncate u-inline-block">
             {{note.firstLine}}
