@@ -3,8 +3,8 @@ import CouchSession from '../models/couch-session';
 import {db} from '../adapters/note';
 
 export default AuthenticatorBase.extend({
-  authenticate(data) {
-    return CouchSession.login(data).then(() => CouchSession.find());
+  authenticate(name, password) {
+    return CouchSession.login({name, password}).then(() => CouchSession.find());
   },
 
   restore() {
