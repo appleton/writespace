@@ -1,0 +1,23 @@
+{
+  "name": "scribly",
+  "scripts": {
+  },
+  "env": {
+    "API_URL": {
+      "required": true
+    },
+    "COUCH_URL": {
+      "required": true
+    },
+    "EMBER_ENV": "production",
+    "FORCE_HTTPS": "true"
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/tonycoco/heroku-buildpack-ember-cli.git"
+    }
+  ]
+}
