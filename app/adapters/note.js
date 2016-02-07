@@ -101,7 +101,7 @@ export default DS.RESTAdapter.extend({
         var store = this.container.lookup('store:main');
         var record = store.getById('note', change.id);
 
-        if (!record) return store.find('note');
+        if (!record) return store.findAll('note');
         if (!record.get('isLoaded') || record.get('isDirty')) return;
 
         if (change.deleted) {

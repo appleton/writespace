@@ -23,7 +23,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   findNotes(user) {
     return user.then((user) => {
       this.sync(user.get('notesUrl'));
-      return this.store.find('note');
+      return this.store.findAll('note');
     });
   },
 
