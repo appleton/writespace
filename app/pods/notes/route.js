@@ -1,10 +1,12 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import KeyboardShortcuts from 'ember-keyboard-shortcuts/mixins/route';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
+  session: Ember.inject.service(),
+
   model: function() {
-    var name = this.get('session.secure.userCtx.name');
+    var name = this.get('session.session.secure.userCtx.name');
     var userId = `org.couchdb.user:${name}`;
 
     var user = this.store.find('user', userId);
@@ -28,8 +30,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   sync(remoteDb) {
     var sync = PouchDB.sync('notes', remoteDb, {
       live: true,
-      retry: true,
-      adapter: 'worker'
+      retry: true
     });
     this.on('deactivate', sync.cancel.bind(sync));
   },

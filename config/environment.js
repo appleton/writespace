@@ -19,7 +19,7 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    'simple-auth': {
+    'ember-simple-auth': {
       authenticationRoute: 'user.login',
       routeAfterAuthentication: 'notes',
       routeIfAlreadyAuthenticated: 'notes'
