@@ -2,14 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   queryParams: ['token'],
+
+  session: Ember.inject.service(),
+
   hasToken: Ember.computed.notEmpty('model.token'),
   passwordIsEmpty: Ember.computed.empty('model.password'),
 
   authenticate() {
-    this.get('session').authenticate('authenticator:couchdb', {
-      name: this.get('model.email'),
-      password: this.get('model.password')
-    });
+    this.get('session').authenticate(
+      'authenticator:couchdb',
+      this.get('model.email'),
+      this.get('model.password')
+    );
   },
 
   notifySuccess() {
