@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 
-const db = new PouchDB('notes', Worker in window ? { adapter: 'worker' } : {});
+const db = new PouchDB('notes');
 
 export { db };
 
