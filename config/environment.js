@@ -30,7 +30,8 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'default-src': "'self'; img-src 'self' data:"
+      'default-src': "'self'; img-src 'self' data: ; style-src 'self' 'unsafe-inline'",
+      'child-src': 'blob:'
     }
   };
 
