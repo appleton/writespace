@@ -1,10 +1,12 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import KeyboardShortcuts from 'ember-keyboard-shortcuts/mixins/route';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
+  session: Ember.inject.service(),
+
   model: function() {
-    var name = this.get('session.secure.userCtx.name');
+    var name = this.get('session.session.secure.userCtx.name');
     var userId = `org.couchdb.user:${name}`;
 
     var user = this.store.find('user', userId);
@@ -21,7 +23,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   findNotes(user) {
     return user.then((user) => {
       this.sync(user.get('notesUrl'));
-      return this.store.find('note');
+      return this.store.findAll('note');
     });
   },
 

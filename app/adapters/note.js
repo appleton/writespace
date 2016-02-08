@@ -1,13 +1,9 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 
-let db;
+const db = new PouchDB('notes', Worker in window ? { adapter: 'worker' } : {});
 
-if (Worker in window) {
-  db = new PouchDB('notes', { adapter: 'worker' });
-} else {
-  db = new PouchDB('notes');
-}
+export { db };
 
 function toRecord(doc) {
   doc.rev = doc._rev;
@@ -105,7 +101,7 @@ export default DS.RESTAdapter.extend({
         var store = this.container.lookup('store:main');
         var record = store.getById('note', change.id);
 
-        if (!record) return store.find('note');
+        if (!record) return store.findAll('note');
         if (!record.get('isLoaded') || record.get('isDirty')) return;
 
         if (change.deleted) {
