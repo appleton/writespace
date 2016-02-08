@@ -15,11 +15,11 @@ function toRecord(doc) {
 }
 
 function toData(store, type, record) {
-  var serializer = store.serializerFor(type.typeKey);
+  var serializer = store.serializerFor(type.modelName);
   var data = {};
 
   serializer.serializeIntoHash(data, type, record, { includeId: true });
-  data = data[type.typeKey];
+  data = data[type.modelName];
 
   data._rev = data.rev;
   data._id = data.id;
@@ -98,11 +98,11 @@ export default DS.RESTAdapter.extend({
       Ember.run(() => {
         if (!change.id) { return; }
 
-        var store = this.container.lookup('store:main');
-        var record = store.getById('note', change.id);
+        var store = this.container.lookup('service:store');
+        var record = store.peekRecord('note', change.id);
 
         if (!record) return store.findAll('note');
-        if (!record.get('isLoaded') || record.get('isDirty')) return;
+        if (!record.get('isLoaded') || record.get('hasDirtyAttributes')) return;
 
         if (change.deleted) {
           store.unloadRecord(record);
