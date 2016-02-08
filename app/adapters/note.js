@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 
+const { getOwner } = Ember;
+
 const db = new PouchDB('notes', Worker in window ? { adapter: 'worker' } : {});
 
 export { db };
@@ -98,7 +100,7 @@ export default DS.RESTAdapter.extend({
       Ember.run(() => {
         if (!change.id) { return; }
 
-        var store = this.container.lookup('service:store');
+        var store = getOwner(this).lookup('service:store');
         var record = store.peekRecord('note', change.id);
 
         if (!record) return store.findAll('note');
