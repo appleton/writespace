@@ -7,7 +7,9 @@ export default Ember.Controller.extend({
 
   saveNote() {
     if (this.get('note.hasDirtyAttributes')) {
-      return this.get('note').set('updatedAt', new Date()).save();
+      const note = this.get('note');
+      note.set('updatedAt', new Date());
+      return note.save();
     }
   },
 

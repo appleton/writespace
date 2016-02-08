@@ -54,7 +54,7 @@ export default DS.RESTAdapter.extend({
     });
   },
 
-  find(store, type, id) {
+  findRecord(store, type, id) {
     return this.db.get(id).then((res) => {
       if (Ember.isNone(res)) throw new Error(`Not found: note with id ${id}`);
       return { notes: toRecord(res) };
