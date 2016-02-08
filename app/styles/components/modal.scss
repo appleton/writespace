@@ -2,8 +2,7 @@
 @import "../base/colours.scss";
 
 .ember-modal-overlay {
-  background: #000;
-  opacity: 0.3;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .ember-modal-dialog {
