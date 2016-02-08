@@ -6,8 +6,10 @@ export default Ember.Controller.extend({
   isShowingDeleteModal: false,
 
   saveNote() {
-    if (this.get('note.isDirty')) {
-      return this.get('note').set('updatedAt', new Date()).save();
+    if (this.get('note.hasDirtyAttributes')) {
+      const note = this.get('note');
+      note.set('updatedAt', new Date());
+      return note.save();
     }
   },
 
