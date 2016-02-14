@@ -44,8 +44,5 @@
     "ember-simple-auth": "1.1.0-beta.1",
     "ivy-codemirror": "1.1.0-beta.1",
     "notifications": "0.2.0"
-  },
-  "dependencies": {
-    "broccoli-serviceworker": "0.0.8"
   }
 }
