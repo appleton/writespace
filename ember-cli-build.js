@@ -6,6 +6,12 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     codemirror: {
       modes: ['markdown']
+    },
+
+    minifyJS: {
+      options: {
+        exclude: ["**/service-worker.js"]
+      }
     }
   });
 
