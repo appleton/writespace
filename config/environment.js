@@ -78,7 +78,7 @@ module.exports = function(environment) {
       options: { origin: ENV.COUCH_URL }
     },
     {
-      route: '/user/*',
+      route: '/_users/*',
       options: { origin: ENV.COUCH_URL }
     }
   ];
