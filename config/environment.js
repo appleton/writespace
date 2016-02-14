@@ -40,7 +40,17 @@ module.exports = function(environment) {
       precacheURLs: [],
       excludePaths: ['test.*', 'robots.txt'],
       includeRegistration: true,
-      skipWaiting: true
+      skipWaiting: true,
+      dynamicCache: [
+        {
+          route: '/_session',
+          options: { origin: 'https://db.notesy.co' }
+        },
+        {
+          route: '/user/:email',
+          options: { origin: 'https://db.notesy.co' }
+        }
+      ]
     }
   };
 
