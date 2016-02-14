@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 const { getOwner } = Ember;
 
-const db = new PouchDB('notes', Worker in window ? { adapter: 'worker' } : {});
+const db = new PouchDB('notes');
 
 export { db };
 

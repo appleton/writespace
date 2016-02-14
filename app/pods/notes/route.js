@@ -30,8 +30,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   sync(remoteDb) {
     var sync = PouchDB.sync('notes', remoteDb, {
       live: true,
-      retry: true,
-      adapter: 'worker'
+      retry: true
     });
     this.on('deactivate', sync.cancel.bind(sync));
   },
