@@ -40,17 +40,7 @@ module.exports = function(environment) {
       precacheURLs: [],
       excludePaths: ['test.*', 'robots.txt'],
       includeRegistration: true,
-      skipWaiting: true,
-      dynamicCache: [
-        {
-          route: '/_session',
-          options: { origin: 'https://db.notesy.co' }
-        },
-        {
-          route: '/user/:email',
-          options: { origin: 'https://db.notesy.co' }
-        }
-      ]
+      skipWaiting: true
     }
   };
 
@@ -82,6 +72,17 @@ module.exports = function(environment) {
   }
 
   ENV.contentSecurityPolicy['connect-src'] = "'self' " + ENV.COUCH_URL + ' ' + ENV.API_URL;
+  ENV.serviceWorker.dynamicCache = [
+    {
+      route: '/_session',
+      options: { origin: ENV.COUCH_URL }
+    },
+    {
+      route: '/user/*',
+      options: { origin: ENV.COUCH_URL }
+    }
+  ];
+
 
   return ENV;
 };
