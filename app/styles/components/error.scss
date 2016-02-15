@@ -1,0 +1,21 @@
+@import "../base/sizes.scss";
+@import "../base/colours.scss";
+
+.error {
+  margin: $s-xxl auto 0;
+  max-width: 400px;
+  text-align: center;
+}
+
+.error__image-wrap {
+  padding: 35px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 5px solid $c-light-grey;
+}
+
+.error__image {
+  fill: $c-light-grey;
+}
