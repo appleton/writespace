@@ -4,6 +4,8 @@ const { on } = Ember;
 const { not } = Ember.computed;
 
 export default Ember.Component.extend({
+  classNames: ['connection-indicator'],
+
   isOffline: not('isOnline'),
 
   listenForStatus: on('didInsertElement', function() {
