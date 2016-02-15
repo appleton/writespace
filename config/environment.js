@@ -32,6 +32,15 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'self'; img-src 'self' data: ; style-src 'self' 'unsafe-inline'",
       'child-src': 'blob:'
+    },
+
+    serviceWorker: {
+      enabled: true,
+      debug: true,
+      precacheURLs: [],
+      excludePaths: ['test.*', 'robots.txt'],
+      includeRegistration: true,
+      skipWaiting: true
     }
   };
 
@@ -63,6 +72,17 @@ module.exports = function(environment) {
   }
 
   ENV.contentSecurityPolicy['connect-src'] = "'self' " + ENV.COUCH_URL + ' ' + ENV.API_URL;
+  ENV.serviceWorker.dynamicCache = [
+    {
+      route: '/_session',
+      options: { origin: ENV.COUCH_URL }
+    },
+    {
+      route: '/_users/*',
+      options: { origin: ENV.COUCH_URL }
+    }
+  ];
+
 
   return ENV;
 };
