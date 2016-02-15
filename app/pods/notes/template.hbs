@@ -1,6 +1,7 @@
 <header class="app-header">
   {{outlet "app-header"}}
-  {{connection-indicator}}
+  {{connection-indicator classNames="u-pull-right"
+     tooltipContent="You are currently offline. You can continue to write notes and and they will be synced when your connection is restored."}}
 </header>
 
 

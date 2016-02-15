@@ -1,12 +1,14 @@
 import Ember from 'ember';
 
 const { on } = Ember;
-const { not } = Ember.computed;
+const { not, readOnly } = Ember.computed;
 
 export default Ember.Component.extend({
   classNames: ['connection-indicator'],
 
+  isOnline: true,
   isOffline: not('isOnline'),
+  isVisible: readOnly('isOffline'),
 
   listenForStatus: on('didInsertElement', function() {
     this._onlineListener = window.addEventListener('online', function() {
