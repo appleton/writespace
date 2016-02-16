@@ -16,6 +16,6 @@ export default Ember.Mixin.create({
   }),
 
   cancelListenForOffnline: on('deactivate', function() {
-    window.removeEventListener(this._offlineListener);
+    window.removeEventListener('offline', this._offlineListener);
   })
 });

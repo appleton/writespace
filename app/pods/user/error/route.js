@@ -10,6 +10,6 @@ export default Ember.Route.extend({
   }),
 
   cancelListenForOnline: on('deactivate', function() {
-    window.removeEventListener(this._onlineListener);
+    window.removeEventListener('online', this._onlineListener);
   })
 });

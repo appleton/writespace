@@ -24,7 +24,7 @@ export default Ember.Component.extend({
   }),
 
   teardown: on('willDestroyElement', function() {
-    window.removeEventListener(this._onlineListener);
-    window.removeEventListener(this._offlineListener);
+    window.removeEventListener('online', this._onlineListener);
+    window.removeEventListener('offline', this._offlineListener);
   })
 });
