@@ -3,12 +3,10 @@
 .connection-indicator {
   height: 23px;
   width:  23px;
-  border: 1px solid $c-light-grey;
-  border-radius: 50%;
   text-align: center;
 
   .error__image {
-    height: 15px;
-    width: 15px;
+    height: 16px;
+    width:  16px;
   }
 }
