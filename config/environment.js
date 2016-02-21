@@ -31,7 +31,7 @@ module.exports = function(environment) {
 
     mixpanel: {
       enabled: (environment === 'production'),
-      LOG_EVENT_TRACKING: true,
+      LOG_EVENT_TRACKING: (environment === 'development'),
       token: process.env.MIXPANEL_TOKEN
     },
 
