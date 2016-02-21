@@ -7,6 +7,7 @@ export default Ember.Mixin.create({
     if (!navigator.onLine) {
       return RSVP.reject({ error: 'offline' });
     }
+    return this._super.apply(this, arguments);
   },
 
   listenForOffline: on('activate', function() {
