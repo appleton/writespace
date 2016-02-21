@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  mixpanel: Ember.inject.service(),
+
   user:  Ember.computed.alias('model.user'),
   notes: Ember.computed.sort('filteredNotes', (a, b) => b.get('updatedAt') - a.get('updatedAt')),
 
@@ -25,6 +27,7 @@ export default Ember.Controller.extend({
   actions: {
     createNote() {
       this.store.createRecord('note').save().then((note) => {
+        this.get('mixpanel').trackEvent('create note');
         this.setSelectedNote(note);
         this.transitionToRoute('notes.note', note);
       });

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  mixpanel: Ember.inject.service(),
+
   note: Ember.computed.alias('model'),
 
   isShowingDeleteModal: false,
@@ -38,6 +40,7 @@ export default Ember.Controller.extend({
       if (!this.get('isShowingDeleteModal')) return;
 
       this.get('note').destroyRecord().then(() => {
+        this.get('mixpanel').trackEvent('delete note');
         this.hideDeleteModal();
         this.send('noteDeleted');
         this.transitionToRoute('notes');
