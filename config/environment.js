@@ -29,6 +29,12 @@ module.exports = function(environment) {
       includeFontAwesome: true
     },
 
+    mixpanel: {
+      enabled: (environment === 'production'),
+      LOG_EVENT_TRACKING: true,
+      token: process.env.MIXPANEL_TOKEN
+    },
+
     contentSecurityPolicy: {
       'default-src': "'self'; img-src 'self' data: ; style-src 'self' 'unsafe-inline'",
       'child-src': 'blob:'
@@ -71,7 +77,13 @@ module.exports = function(environment) {
     ENV.API_URL = process.env.API_URL || 'https://api.scribly.co';
   }
 
-  ENV.contentSecurityPolicy['connect-src'] = "'self' " + ENV.COUCH_URL + ' ' + ENV.API_URL;
+  ENV.contentSecurityPolicy['connect-src'] = [
+    "'self'",
+    'api.mixpanel.com',
+    ENV.COUCH_URL,
+    ENV.API_URL
+  ].join(' ')
+
   ENV.serviceWorker.dynamicCache = [
     {
       route: '/_session',
