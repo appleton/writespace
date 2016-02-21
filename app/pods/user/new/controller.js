@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   session: Ember.inject.service(),
+  mixpanel: Ember.inject.service(),
 
   authenticate() {
     this.get('session').authenticate(
@@ -13,7 +14,10 @@ export default Ember.Controller.extend({
 
   actions: {
     createUser() {
-      this.get('model').saveNew().then(this.authenticate.bind(this));
+      this.get('model').saveNew().then(() => {
+        this.get('mixpanel').trackEvent('user create');
+        this.authenticate();
+      });
     }
   }
 });

@@ -4,6 +4,7 @@ export default Ember.Controller.extend({
   queryParams: ['token'],
 
   session: Ember.inject.service(),
+  mixpanel: Ember.inject.service(),
 
   hasToken: Ember.computed.notEmpty('model.token'),
   passwordIsEmpty: Ember.computed.empty('model.password'),
@@ -36,9 +37,13 @@ export default Ember.Controller.extend({
   actions: {
     editPassword() {
       this.get('model').save().then(() => {
+        this.get('mixpanel').trackEvent('password reset complete');
         this.notifySuccess();
         this.authenticate();
-      }).catch((res) => this.notifyError(res.responseJSON.errors[0].msg));
+      }).catch((res) => {
+        this.get('mixpanel').trackEvent('password reset error');
+        this.notifyError(res.responseJSON.errors[0].msg);
+      });
     }
   }
 });
