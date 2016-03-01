@@ -31,7 +31,7 @@ module.exports = function(environment) {
 
     mixpanel: {
       enabled: (environment === 'production'),
-      LOG_EVENT_TRACKING: (environment === 'development'),
+      LOG_EVENT_TRACKING: process.env.LOG_EVENT_TRACKING || false,
       token: process.env.MIXPANEL_TOKEN
     },
 
@@ -42,7 +42,7 @@ module.exports = function(environment) {
 
     serviceWorker: {
       enabled: true,
-      debug: true,
+      debug: process.env.LOG_SERVICE_WORKER || false,
       precacheURLs: [],
       excludePaths: ['test.*', 'robots.txt'],
       includeRegistration: true,
@@ -82,7 +82,7 @@ module.exports = function(environment) {
     'api.mixpanel.com',
     ENV.COUCH_URL,
     ENV.API_URL
-  ].join(' ')
+  ].join(' ');
 
   ENV.serviceWorker.dynamicCache = [
     {
