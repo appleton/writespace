@@ -29,6 +29,8 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import('bower_components/pouchdb/dist/pouchdb.js');
+  app.import('bower_components/simplemde/dist/simplemde.min.css');
+  app.import('bower_components/simplemde/dist/simplemde.min.js');
 
   return app.toTree();
 };

@@ -10,6 +10,10 @@
   height: 100%;
 }
 
+.CodeMirror {
+  padding: 0;
+}
+
 .CodeMirror, .editor {
   position: absolute;
   top: 0;
@@ -21,8 +25,8 @@
   border: none;
   background: $c-page-bg;
   font-size: 18px;
-  font-family: "Source code pro", "Inconsolata-dz", "Inconsolata", "Menlo", "Ubuntu Mono", "Consolas", monospace;
-  line-height: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 28px;
   resize: none;
   -webkit-overflow-scrolling: touch;
 
@@ -31,7 +35,7 @@
   }
 }
 
-.cm-s-scribly {
+.cm-s-paper {
   &.CodeMirror {
     background: transparent;
     color: #424242;
@@ -53,5 +57,20 @@
 
   .cm-string {
     color: #929292;
+  }
+
+  .cm-header-1 {
+    font-size: 160% !important;
+    line-height: 160% !important;
+  }
+
+  .cm-header-2 {
+    font-size: 130% !important;
+    line-height: 130% !important;
+  }
+
+  .cm-comment {
+    background: transparent !important;
+    font-family: "Inconsolata-dz", "Inconsolata", "Menlo", "Ubuntu Mono", "Consolas", monospace;
   }
 }
