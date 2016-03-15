@@ -3,7 +3,7 @@
     {{#if isTouch}}
       {{textarea class="editor" value=model.text}}
     {{else}}
-      {{ivy-codemirror value=model.text theme="scribly" mode="markdown" lineWrapping=true}}
+      {{markdown-editor value=model.text}}
     {{/if}}
   </div>
 </main>

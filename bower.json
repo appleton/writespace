@@ -12,11 +12,10 @@
     "jquery": "1.11.3",
     "loader.js": "ember-cli/loader.js#3.4.0",
     "qunit": "~1.20.0",
-    "codemirror": "~4.8.0",
-    "ember-cli-codemirror-shim": "~0.0.1",
     "font-awesome": "~4.3.0",
     "pouchdb": "~5.2.0",
-    "mousetrap": "~1.5.2"
+    "mousetrap": "~1.5.2",
+    "simplemde": "^1.10.1"
   },
   "resolutions": {
     "ember": "2.3.1"
