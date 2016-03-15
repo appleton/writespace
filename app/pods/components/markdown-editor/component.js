@@ -19,10 +19,19 @@ export default Component.extend(KeyboardShortcuts, {
       element: this.el,
       autoDownloadFontAwesome: false,
       autofocus: true,
+      indentWithTabs: false,
       placeholder: this.get('placeholder'),
       spellChecker: false,
       status: false,
       toolbar: false,
+      shortcuts: {
+        togglePreview: '',
+        toggleFullScreen: '',
+        toggleSideBySide: '',
+        cleanBlock: '',
+        toggleHeadingBigger: 'Cmd-H',
+        toggleHeadingSmaller: 'Shift-Cmd-H'
+      }
     });
 
     this.set('editor', editor);
