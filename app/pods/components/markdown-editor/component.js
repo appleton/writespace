@@ -6,17 +6,17 @@ import KeyboardShortcuts from 'ember-keyboard-shortcuts/mixins/component';
 const { on } = Ember;
 
 export default Component.extend(KeyboardShortcuts, {
-  tagName: 'textarea',
   placeholder: 'start writing',
 
   keyboardShortcuts: {
     f: { action: 'setFocus', global: false },
-    esc: { action: 'resignFocus', global: true, preventDefault: false }
+    esc: { action: 'resignFocus', global: true, preventDefault: false },
+    'meta+enter': { action: 'toggleFullScreen' }
   },
 
   setupSimpleMDE: on('didInsertElement', function() {
     const editor = new window.SimpleMDE({
-      element: this.el,
+      element: this.$('textarea')[0],
       autoDownloadFontAwesome: false,
       autofocus: true,
       indentWithTabs: false,
@@ -86,6 +86,11 @@ export default Component.extend(KeyboardShortcuts, {
     resignFocus() {
       // Hacky. Focus whatever just to remove focus from the editor
       document.body.querySelector('button').focus();
+    },
+
+    toggleFullScreen() {
+      this.toggleProperty('isFullScreen');
+      this.get('codemirror').setOption('fullScreen', this.get('isFullScreen'));
     }
   }
 });

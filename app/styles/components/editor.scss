@@ -39,6 +39,17 @@
   &.CodeMirror {
     background: transparent;
     color: #424242;
+
+    &.CodeMirror-fullscreen {
+      background: $c-page-bg;
+      padding: $s-header-height 15%;
+      z-index: 1;
+
+      .CodeMirror-lines {
+        margin: 0 auto;
+        max-width: 900px;
+      }
+    }
   }
 
   .CodeMirror-lines {
@@ -76,5 +87,22 @@
   .cm-comment {
     background: transparent !important;
     font-family: "Inconsolata-dz", "Inconsolata", "Menlo", "Ubuntu Mono", "Consolas", monospace;
+  }
+}
+
+.fullscreen-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $s-header-height;
+  padding: 7px;
+  background: #fff;
+  border-bottom: 1px solid $c-border;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+
+  .action--back {
+    display: block;
   }
 }
