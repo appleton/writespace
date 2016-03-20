@@ -29,8 +29,8 @@ export default Component.extend(KeyboardShortcuts, {
         toggleFullScreen: '',
         toggleSideBySide: '',
         cleanBlock: '',
-        toggleHeadingBigger: 'Cmd-H',
-        toggleHeadingSmaller: 'Shift-Cmd-H'
+        toggleHeadingBigger: '',
+        toggleHeadingSmaller: ''
       }
     });
 
