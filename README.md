@@ -30,12 +30,12 @@ $ npm start
 ```
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Building
+## Building
 
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
+## Deploying
 
 ```bash
 $ git remote add heroku https://git.heroku.com/scribly.git
