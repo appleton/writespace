@@ -6,11 +6,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   session: Ember.inject.service(),
 
   model: function() {
-    var name = this.get('session.session.secure.userCtx.name');
-    var userId = `org.couchdb.user:${name}`;
+    const name = this.get('session.data.authenticated.userCtx.name');
+    const userId = `org.couchdb.user:${name}`;
 
-    var user = this.store.find('user', userId);
-    var notes = this.findNotes(user);
+    const user = this.store.find('user', userId);
+    const notes = this.findNotes(user);
 
     return Ember.RSVP.hash({ notes, user });
   },
@@ -28,7 +28,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, KeyboardShortcuts, {
   },
 
   sync(remoteDb) {
-    var sync = PouchDB.sync('notes', remoteDb, {
+    const sync = PouchDB.sync('notes', remoteDb, {
       live: true,
       retry: true
     });
