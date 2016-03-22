@@ -1,7 +1,7 @@
 {
-  "name": "scribly",
-  "version": "0.0.0",
-  "description": "An Ember.js front end for Scribly",
+  "name": "writespace",
+  "version": "1.0.0",
+  "description": "An Ember.js front end for Writespace",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -12,7 +12,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/appleton/scribly",
+  "repository": "https://github.com/appleton/writespace",
   "engines": {
     "node": "4.x.x"
   },

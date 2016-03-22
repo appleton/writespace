@@ -1,6 +1,6 @@
-# Scribly
+# Writespace
 
-Scribly is an Ember.js note taking app.
+Writespace is an Ember.js note taking app.
 
 ## Prerequisites
 
@@ -12,13 +12,13 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](http://www.ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
 * [CouchDB](http://couchdb.apache.org/) running on http://localhost:5984
-* [Scribly API](https://github.com/appleton/scribly-api) running on http://localhost:1337
+* [Writespace API](https://github.com/appleton/writespace-api) running on http://localhost:1337
 
 ## Installation
 
 ```bash
-$ git clone git@github.com:appleton/scribly.git
-$ cd scribly
+$ git clone git@github.com:appleton/writespace.git
+$ cd writespace
 $ npm install
 $ bower install
 ```
@@ -38,6 +38,6 @@ $ npm start
 ## Deploying
 
 ```bash
-$ git remote add heroku https://git.heroku.com/scribly.git
+$ git remote add heroku https://git.heroku.com/writespace.git
 $ git push heroku master
 ```

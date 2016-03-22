@@ -2,8 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'scribly',
-    podModulePrefix: 'scribly/pods',
+    modulePrefix: 'writespace',
+    podModulePrefix: 'writespace/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -74,7 +74,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.COUCH_URL = process.env.COUCH_URL || 'https://db.notesy.co';
-    ENV.API_URL = process.env.API_URL || 'https://api.scribly.co';
+    ENV.API_URL = process.env.API_URL || 'https://api.writespace.co';
   }
 
   ENV.contentSecurityPolicy['connect-src'] = [

@@ -1,4 +1,4 @@
-import CouchAuthenticator from 'scribly/authenticators/couchdb';
+import CouchAuthenticator from 'writespace/authenticators/couchdb';
 
 export function initialize(container) {
   container.register('authenticator:couchdb', CouchAuthenticator);
