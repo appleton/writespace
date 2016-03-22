@@ -24,11 +24,16 @@ export default Ember.Controller.extend({
 
   actions: {
     resetPassword() {
-      this.get('model').save().then(() => {
+      const model = this.get('model');
+
+      model.save().then(() => {
         this.get('mixpanel').trackEvent('password reset requested');
         this.notifySuccess();
         this.set('model', this.store.createRecord('password'));
-      }).catch((res) => this.notifyError(res.responseJSON.errors[0].msg));
+      }).catch(() => {
+        const message = model.get('errors.messages').join(', ');
+        this.notifyError(message);
+      });
     }
   }
 });
