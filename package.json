@@ -32,6 +32,7 @@
     "ember-cli-ic-ajax": "0.2.4",
     "ember-cli-inject-live-reload": "^1.3.1",
     "ember-cli-mixpanel-service": "0.0.13",
+    "ember-cli-notifications": "3.2.0",
     "ember-cli-qunit": "^1.2.1",
     "ember-cli-release": "0.2.8",
     "ember-cli-sass": "^4.0.0-beta.4",
@@ -48,7 +49,6 @@
     "ember-resolver": "2.0.3",
     "ember-simple-auth": "1.1.0-beta.3",
     "ember-tooltips": "0.5.8",
-    "loader.js": "4.0.1",
-    "notifications": "0.2.0"
+    "loader.js": "4.0.1"
   }
 }
