@@ -3,11 +3,8 @@
 
   {{#unless model.errors.isEmpty}}
     <div class="form-errors">
-      {{#each model.errors.email as |error|}}
-        Email {{error.message}}
-      {{/each}}
-      {{#each model.errors.password as |error|}}
-        Password {{error.message}}
+      {{#each model.errors.messages as |message|}}
+        {{message}}
       {{/each}}
     </div>
   {{/unless}}

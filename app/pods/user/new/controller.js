@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
 
   actions: {
     createUser() {
-      this.get('model').saveNew().then(() => {
+      this.get('model').save().then(() => {
         this.get('mixpanel').trackEvent('user create');
         this.authenticate();
       });
