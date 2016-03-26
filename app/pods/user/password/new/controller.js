@@ -5,34 +5,21 @@ export default Ember.Controller.extend({
 
   isDisabled: Ember.computed.empty('model.email'),
 
-  notifySuccess() {
-    this.notifications.clearAll();
-    this.notifications.addNotification({
-      message: `A password reset link has been sent to ${this.get('model.email')}`,
-      type: 'success',
-      autoClear: true
-    });
-  },
-
-  notifyError(msg) {
-    this.notifications.clearAll();
-    this.notifications.addNotification({
-      message: msg,
-      type: 'error'
-    });
+  notifySuccess(email) {
+    const msg = `A password reset link has been sent to ${email}`;
+    this.set('successMessage', msg);
   },
 
   actions: {
     resetPassword() {
+      this.set('successMessage', null);
+
       const model = this.get('model');
 
       model.save().then(() => {
         this.get('mixpanel').trackEvent('password reset requested');
-        this.notifySuccess();
+        this.notifySuccess(model.get('email'));
         this.set('model', this.store.createRecord('password'));
-      }).catch(() => {
-        const message = model.get('errors.messages').join(', ');
-        this.notifyError(message);
       });
     }
   }
