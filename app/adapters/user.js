@@ -6,7 +6,7 @@ const NEW_URL = `${config.API_URL}/users`;
 
 export default DS.RESTAdapter.extend({
   host: config.COUCH_URL,
-  urlForCreateRecord() { return NEW_URL },
+  urlForCreateRecord() { return NEW_URL; },
 
   pathForType(type) {
     return `_${Ember.Inflector.inflector.pluralize(type)}`;
