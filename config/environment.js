@@ -74,7 +74,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.COUCH_URL = process.env.COUCH_URL || 'https://db.notesy.co';
-    ENV.API_URL = process.env.API_URL || 'https://api.writespace.co';
+    ENV.API_URL = process.env.API_URL || 'https://api.writespace.it';
   }
 
   ENV.contentSecurityPolicy['connect-src'] = [
