@@ -1,0 +1,13 @@
+{{#unless model.errors.isEmpty}}
+  <div class="form-errors">
+    {{#each model.errors.messages as |message|}}
+      {{message}}
+    {{/each}}
+  </div>
+{{/unless}}
+
+{{#if successMessage}}
+  <div class="form-message">
+    {{successMessage}}
+  </div>
+{{/if}}

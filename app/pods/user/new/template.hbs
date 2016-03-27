@@ -1,13 +1,7 @@
 <main class="user-form">
   <h1 class="user-form__heading">Create an account</h1>
 
-  {{#unless model.errors.isEmpty}}
-    <div class="form-errors">
-      {{#each model.errors.messages as |message|}}
-        {{message}}
-      {{/each}}
-    </div>
-  {{/unless}}
+  {{validation-messages model=model}}
 
   <form class="user-form__body" {{action "createUser" on="submit"}}>
 

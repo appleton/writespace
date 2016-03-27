@@ -1,19 +1,7 @@
 <main class="user-form">
   <h1 class="user-form__heading">Email password reset</h1>
 
-  {{#unless model.errors.isEmpty}}
-    <div class="form-errors">
-      {{#each model.errors.messages as |message|}}
-        {{message}}
-      {{/each}}
-    </div>
-  {{/unless}}
-
-  {{#if successMessage}}
-    <div class="form-message">
-      {{successMessage}}
-    </div>
-  {{/if}}
+  {{validation-messages model=model successMessage=successMessage}}
 
   <form class="user-form__body" {{action "resetPassword" on="submit"}}>
 

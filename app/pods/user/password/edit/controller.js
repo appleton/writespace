@@ -18,20 +18,7 @@ export default Ember.Controller.extend({
   },
 
   notifySuccess() {
-    this.notifications.clearAll();
-    this.notifications.addNotification({
-      message: 'Password updated',
-      type: 'success',
-      autoClear: true
-    });
-  },
-
-  notifyError(msg) {
-    this.notifications.clearAll();
-    this.notifications.addNotification({
-      message: msg,
-      type: 'error'
-    });
+    this.set('successMessage', 'Password updated');
   },
 
   actions: {
@@ -40,10 +27,7 @@ export default Ember.Controller.extend({
         this.get('mixpanel').trackEvent('password reset complete');
         this.notifySuccess();
         this.authenticate();
-      }).catch((res) => {
-        this.get('mixpanel').trackEvent('password reset error');
-        this.notifyError(res.responseJSON.errors[0].msg);
-      });
+      }).catch(() => this.get('mixpanel').trackEvent('password reset error'));
     }
   }
 });
