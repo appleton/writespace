@@ -1,24 +1,47 @@
+import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
+let model;
+
 moduleForComponent('validation-messages', 'Integration | Component | validation messages', {
-  integration: true
+  integration: true,
+
+  beforeEach() {
+    const model = Ember.Object.create({
+      errors: {
+        messages: ['an error happened', 'another error happened']
+      }
+    });
+
+    this.set('model', model);
+    this.set('successMessage', 'success happened');
+
+    this.render(hbs`
+      {{validation-messages model=model successMessage=successMessage}}
+    `);
+  }
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('it renders errors', function(assert) {
+  const text = this.$('.form-errors').text();
 
-  this.render(hbs`{{validation-messages}}`);
+  assert.ok(
+    text.includes('an error happened'),
+    'expected to render the first error'
+  );
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(
+    text.includes('another error happened'),
+    'expected to render the second error'
+  );
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#validation-messages}}
-      template block text
-    {{/validation-messages}}
-  `);
+test('it renders success', function(assert) {
+  const text = this.$('.form-message').text();
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(
+    text.includes('success happened'),
+    'expected to render the success message'
+  );
 });

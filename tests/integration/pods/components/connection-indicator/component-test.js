@@ -6,20 +6,6 @@ moduleForComponent('connection-indicator', 'Integration | Component | connection
 });
 
 test('it renders', function(assert) {
-  
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
-
-  this.render(hbs`{{connection-indicator}}`);
-
+  this.render(hbs`{{connection-indicator tooltipContent="you arere offline"}}`);
   assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:" + EOL +
-  this.render(hbs`
-    {{#connection-indicator}}
-      template block text
-    {{/connection-indicator}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
