@@ -1,6 +1,7 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var isProduction = EmberApp.env() === 'production';
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -31,6 +32,10 @@ module.exports = function(defaults) {
   app.import('bower_components/pouchdb/dist/pouchdb.js');
   app.import('bower_components/simplemde/dist/simplemde.min.css');
   app.import('bower_components/simplemde/dist/simplemde.min.js');
+
+  if (!isProduction) {
+    app.import('bower_components/pouchdb/dist/pouchdb.memory.js', { type: 'test' });
+  }
 
   return app.toTree();
 };
