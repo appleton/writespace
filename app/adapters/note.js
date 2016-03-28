@@ -1,9 +1,16 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import config from 'writespace/config/environment';
 
 const { getOwner } = Ember;
 
-const db = new PouchDB('notes');
+let opts = null;
+
+if (config.environment === 'test') {
+  opts = { adapter: 'memory' };
+}
+
+const db = new PouchDB('notes', opts);
 
 export { db };
 
