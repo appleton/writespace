@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
         this.get('mixpanel').trackEvent('password reset requested');
         this.notifySuccess(model.get('email'));
         this.set('model', this.store.createRecord('password'));
-      });
+      }).catch(() => {});
     }
   }
 });

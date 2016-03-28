@@ -98,7 +98,9 @@ export default function() {
     type: 'user',
     roles: [],
     notes_db: 'notes_e78320d2f8ea3dbf05d0b723f8285b50ed8ddfa7'
-  });
+  }, 200);
+
+  this.post('/api/passwords', {}, 201);
 }
 
 /*
