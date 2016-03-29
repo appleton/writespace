@@ -4,12 +4,19 @@ import { currentSession } from 'writespace/tests/helpers/ember-simple-auth';
 
 import page from 'writespace/tests/pages/user/login';
 
-moduleForAcceptance('Acceptance | user/login');
+let session, user;
+
+moduleForAcceptance('Acceptance | user/login', {
+  beforeEach() {
+    session = server.create('session');
+    user = server.create('user', { name: session.userCtx.name });
+  }
+});
 
 test('success', function(assert) {
   page
     .visit()
-    .email('test@example.com')
+    .email(user.name)
     .password('s3cret')
     .submit();
 
@@ -17,7 +24,7 @@ test('success', function(assert) {
     const session = currentSession(this.application);
     const loggedInUser = session.get('data.authenticated.userCtx.name');
 
-    assert.equal(loggedInUser, 'test@example.com');
+    assert.equal(loggedInUser, user.name);
     assert.equal(currentURL(), '/');
   });
 });

@@ -73,32 +73,21 @@ export default function() {
 
   */
 
-  this.get('/db/_session', {
-    ok: true,
-    userCtx: {
-      name: 'test@example.com',
-      roles: []
-    },
-    info: {
-      authentication_db: '_users',
-      authentication_handlers: ['oauth','cookie','default'],
-      authenticated: 'cookie'
-    }
+  this.get('/db/_session', function(db) {
+    return db.sessions[0];
   }, 200);
 
-  this.post('/db/_session', {
-    ok: true,
-    name: 'test@example.com',
-    roles: []
+  this.post('/db/_session', function(db, req) {
+    const name = req.requestBody.split('&').find((item) => {
+      return item.indexOf('name') === 0;
+    }).split('=')[1];
+
+    return server.create('session', { userCtx: { name } });
   }, 200);
 
-  this.get('/db/_users/:user_id', {
-    _id: 'org.couchdb.user:test@example.com',
-    name:'test@example.com',
-    type: 'user',
-    roles: [],
-    notes_db: 'notes_e78320d2f8ea3dbf05d0b723f8285b50ed8ddfa7'
-  }, 200);
+  this.get('/db/_users/:id', function(db, req) {
+    return db.users.where({ _id: decodeURIComponent(req.params.id) })[0];
+  });
 
   this.post('/api/passwords', {}, 201);
 }

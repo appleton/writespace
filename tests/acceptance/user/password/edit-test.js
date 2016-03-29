@@ -3,10 +3,15 @@ import moduleForAcceptance from 'writespace/tests/helpers/module-for-acceptance'
 
 import page from 'writespace/tests/pages/user/password/edit';
 
-moduleForAcceptance('Acceptance | user/password/edit');
-
+let user;
 const token = '123abc';
 const newPassword = 'n3wpassw0rd';
+
+moduleForAcceptance('Acceptance | user/password/edit', {
+  beforeEach() {
+    user = server.create('user');
+  }
+});
 
 test('redirects with no token', function(assert) {
   page.visit();
@@ -22,6 +27,8 @@ test('success', function(assert) {
     assert.equal(body.token, token);
     assert.equal(body.password, newPassword);
     done();
+
+    return { email: user.name };
   }, 200);
 
   page
