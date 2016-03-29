@@ -82,7 +82,11 @@ export default function() {
       return item.indexOf('name') === 0;
     }).split('=')[1];
 
-    return server.create('session', { userCtx: { name } });
+    return server.create('session', {
+      userCtx: {
+        name: decodeURIComponent(name)
+      }
+    });
   }, 200);
 
   this.get('/db/_users/:id', function(db, req) {
