@@ -14,7 +14,6 @@ test('success', function(assert) {
   server.post('/api/passwords', (db, request) => {
     assert.equal(JSON.parse(request.requestBody).email, email);
     done();
-    return {};
   }, 201);
 
   page
