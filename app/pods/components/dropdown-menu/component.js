@@ -24,10 +24,12 @@ export default Ember.Component.extend({
   },
 
   menu: function() {
+    if (this.get('isDestroying')) return;
     return this.$('ul')[0];
   }.property(),
 
   button: function() {
+    if (this.get('isDestroying')) return;
     return this.$('button')[0];
   }.property(),
 

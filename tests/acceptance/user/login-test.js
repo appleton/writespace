@@ -1,34 +1,23 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'writespace/tests/helpers/module-for-acceptance';
+import { currentSession } from 'writespace/tests/helpers/ember-simple-auth';
 
 import page from 'writespace/tests/pages/user/login';
 
 moduleForAcceptance('Acceptance | user/login');
 
 test('success', function(assert) {
-  assert.expect(2);
-  const done = assert.async();
-
-  server.post('/db/_session', (db, request) => {
-    assert.equal(JSON.parse(request.requestBody).name, 'test@example.com');
-    assert.equal(JSON.parse(request.requestBody).password, 's3cret');
-
-    done();
-
-    return {
-      ok: true,
-      name: 'test@example.com',
-      roles: []
-    };
-  }, 201);
-
   page
     .visit()
     .email('test@example.com')
     .password('s3cret')
     .submit();
 
-  andThen(function() {
+  andThen(() => {
+    const session = currentSession(this.application);
+    const loggedInUser = session.get('data.authenticated.userCtx.name');
+
+    assert.equal(loggedInUser, 'test@example.com');
     assert.equal(currentURL(), '/');
   });
 });
@@ -46,7 +35,7 @@ test('error', function(assert) {
     .password('wr0ng')
     .submit();
 
-  andThen(function() {
+  andThen(() => {
     assert.equal(page.errors, 'Name or password is incorrect.');
   });
 });

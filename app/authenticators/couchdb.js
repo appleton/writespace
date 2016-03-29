@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import AuthenticatorBase from 'ember-simple-auth/authenticators/base';
+import config from 'writespace/config/environment';
 import CouchSession from '../models/couch-session';
 import {db} from '../adapters/note';
 
@@ -19,7 +20,9 @@ export default AuthenticatorBase.extend({
 
   invalidate() {
     return CouchSession.logout().then(() => db.destroy()).then(() => {
-      document.location.reload();
+      if (config.environment !== 'test') {
+        document.location.reload();
+      }
     });
   }
 });
