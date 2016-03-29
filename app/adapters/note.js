@@ -4,7 +4,7 @@ import config from 'writespace/config/environment';
 
 const { getOwner } = Ember;
 
-let opts = null;
+let opts = undefined;
 
 if (config.environment === 'test') {
   opts = { adapter: 'memory' };
