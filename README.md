@@ -1,5 +1,7 @@
 # Writespace
 
+https://codeship.com/projects/bf548700-d884-0133-d34e-5e1dcb628de7/status?branch=master
+
 Writespace is an Ember.js note taking app.
 
 ## Prerequisites
