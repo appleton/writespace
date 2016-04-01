@@ -1,6 +1,8 @@
+import Ember from 'ember';
 import { module } from 'qunit';
 import startApp from '../helpers/start-app';
 import destroyApp from '../helpers/destroy-app';
+import { db } from 'writespace/adapters/note';
 
 export default function(name, options = {}) {
   module(name, {
@@ -12,12 +14,19 @@ export default function(name, options = {}) {
       }
     },
 
-    afterEach() {
+    afterEach(assert) {
       if (options.afterEach) {
         options.afterEach.apply(this, arguments);
       }
 
-      destroyApp(this.application);
+      const done = assert.async();
+
+      db.allDocs().then((res) => {
+        return Ember.RSVP.all(res.rows.map((doc) => db.remove(doc.id, doc.value.rev)));
+      }).then(() => {
+        destroyApp(this.application);
+        done();
+      });
     }
   });
 }
