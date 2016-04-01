@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from 'writespace/config/environment';
 
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const months = [
@@ -65,6 +66,7 @@ export default Ember.Component.extend({
   },
 
   startTick: function() {
+    if (config.environment === 'test') return;
     this.tick();
   }.on('didInsertElement'),
 

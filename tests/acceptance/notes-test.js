@@ -17,11 +17,30 @@ moduleForAcceptance('Acceptance | notes', {
   }
 });
 
-test('visiting /', function(assert) {
+test('viewing a pre-existing note', function(assert) {
   page
-    .visit();
+    .visit()
+    .clickOnNote();
 
-  andThen(function() {
-    assert.equal(currentURL(), '/');
+  andThen(() => assert.equal(currentURL(), `/${note._id}`));
+});
+
+test('creating a note', function(assert) {
+  const done = assert.async();
+  assert.expect(2);
+
+  page
+    .visit()
+    .clickNewNoteButton();
+
+  andThen(() => {
+    db.allDocs().then((res) => {
+      const newId = res.rows.find((doc) => doc.id !== note._id).id;
+
+      assert.equal(res.rows.length, 2);
+      assert.equal(currentURL(), `/${newId}`);
+
+      done();
+    });
   });
 });

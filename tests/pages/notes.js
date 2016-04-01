@@ -1,7 +1,9 @@
 import PageObject from 'writespace/tests/page-object';
 
-let { visitable } = PageObject;
+let { visitable, clickable } = PageObject;
 
 export default PageObject.create({
-  visit: visitable('/')
+  visit:              visitable('/'),
+  clickOnNote:        clickable('a.sidebar__body__list__item'),
+  clickNewNoteButton: clickable('[title="New note"]')
 });
