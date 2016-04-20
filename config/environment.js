@@ -47,6 +47,10 @@ module.exports = function(environment) {
       excludePaths: ['test.*', 'robots.txt'],
       includeRegistration: true,
       skipWaiting: true
+    },
+
+    'ember-cli-mirage': {
+      enabled: false
     }
   };
 
