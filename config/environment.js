@@ -61,6 +61,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.COUCH_URL = process.env.COUCH_URL || 'http://localhost:5984';
+    ENV.serviceWorker.enabled = false;
     ENV.API_URL = process.env.API_URL || 'http://localhost:1337';
   }
 
@@ -74,6 +75,12 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV['ember-cli-mirage'] = {
+      enabled: true
+    };
+
+    ENV.serviceWorker.enabled = false;
 
     ENV.COUCH_URL = '/db';
     ENV.API_URL = '/api';
