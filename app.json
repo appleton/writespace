@@ -25,7 +25,7 @@
         "COUCH_URL": "/db"
       },
       "buildpacks": [
-        { "url": "https://github.com/heroku/heroku-buildpack-google-chrome" },
+        { "url": "https://github.com/stomita/heroku-buildpack-phantomjs" },
         { "url": "https://github.com/heroku/heroku-buildpack-nodejs" }
       ]
     }
