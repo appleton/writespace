@@ -12,12 +12,22 @@
     "EMBER_ENV": "production",
     "FORCE_HTTPS": "true"
   },
-  "addons": [
-
-  ],
+  "addons": [],
   "buildpacks": [
     {
       "url": "https://github.com/tonycoco/heroku-buildpack-ember-cli.git"
     }
-  ]
+  ],
+  "environments": {
+    "test": {
+      "env": {
+        "API_URL": "/api",
+        "COUCH_URL": "/db"
+      },
+      "buildpacks": [
+        { "url": "https://github.com/heroku/heroku-buildpack-google-chrome" },
+        { "url": "https://github.com/heroku/heroku-buildpack-nodejs" }
+      ]
+    }
+  }
 }
