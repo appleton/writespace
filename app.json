@@ -20,9 +20,6 @@
   ],
   "environments": {
     "test": {
-      "scripts": {
-        "test-setup": "bower install"
-      },
       "env": {
         "API_URL": "/api",
         "COUCH_URL": "/db",
