@@ -22,7 +22,8 @@
     "test": {
       "env": {
         "API_URL": "/api",
-        "COUCH_URL": "/db"
+        "COUCH_URL": "/db",
+        "EMBER_ENV": "test"
       },
       "buildpacks": [
         { "url": "https://github.com/stomita/heroku-buildpack-phantomjs" },
