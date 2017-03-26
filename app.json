@@ -21,7 +21,7 @@
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "yarn add bower && bower install"
+        "test-setup": "npm install bower && bower install"
       },
       "env": {
         "API_URL": "/api",
