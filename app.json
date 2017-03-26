@@ -20,6 +20,9 @@
   ],
   "environments": {
     "test": {
+      "scripts": {
+        "test-setup": "yarn add bower && bower install"
+      },
       "env": {
         "API_URL": "/api",
         "COUCH_URL": "/db",

@@ -1,7 +1,6 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  console.log(environment);
   var ENV = {
     modulePrefix: 'writespace',
     podModulePrefix: 'writespace/pods',
@@ -110,7 +109,5 @@ module.exports = function(environment) {
     }
   ];
 
-
-  console.log(ENV);
   return ENV;
 };
