@@ -1,0 +1,11 @@
+@import "../base/sizes.scss";
+
+.shutdown-alert {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 140px;
+  background: #f9e9e7;
+}
