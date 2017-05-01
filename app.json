@@ -12,12 +12,26 @@
     "EMBER_ENV": "production",
     "FORCE_HTTPS": "true"
   },
-  "addons": [
-
-  ],
+  "addons": [],
   "buildpacks": [
     {
       "url": "https://github.com/tonycoco/heroku-buildpack-ember-cli.git"
     }
-  ]
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "npm install bower && bower install"
+      },
+      "env": {
+        "API_URL": "/api",
+        "COUCH_URL": "/db",
+        "EMBER_ENV": "test"
+      },
+      "buildpacks": [
+        { "url": "https://github.com/stomita/heroku-buildpack-phantomjs" },
+        { "url": "https://github.com/heroku/heroku-buildpack-nodejs" }
+      ]
+    }
+  }
 }
